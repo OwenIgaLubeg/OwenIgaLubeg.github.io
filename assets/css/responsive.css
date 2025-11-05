@@ -1461,4 +1461,50 @@
 		display: none !important;
 	}
 
+	.language-switcher {
+      position: relative;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    .lang-btn {
+      background-color: #0066cc;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .lang-btn:hover {
+      background-color: #0052a3;
+    }
+
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      z-index: 1000;
+    }
+
+    .lang-dropdown a {
+      color: #333;
+      padding: 10px 14px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .lang-dropdown a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .language-switcher:hover .lang-dropdown {
+      display: block;
+    }
+
+
 }

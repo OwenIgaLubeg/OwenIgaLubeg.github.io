@@ -1095,7 +1095,7 @@
     </div>
     <div class="hero-art" role="img" aria-label="Luxury Safari Video">
       <video autoplay muted loop playsinline class="hero-art-video">
-        <source src="./img/hero-video-13.mp4" type="video/mp4">
+        <source src="./img/community-background-pic.mp4" type="video/mp4">
       </video>
       <span class="hero-art-label">Best Safari Adventures East-Africa</span>
     </div>
@@ -1118,17 +1118,56 @@
 <!-- ============ QUICK BOOKING ============ -->
 <section class="quick-booking" id="booking">
   <div class="container">
-    <form id="quickBookingForm" class="booking-form-compact">
-      <label>Destination <select required><option value="">Select...</option><option value="uganda">Uganda</option><option value="kenya">Kenya</option><option value="tanzania">Tanzania</option><option value="rwanda">Rwanda</option></select></label>
-      <label>Travel Date <input type="date" required></label>
-      <label>Travelers <input type="number" min="1" value="2" required></label>
-      <label>Contact Info <input type="text" placeholder="WhatsApp / Email" required></label>
-      <button type="submit">Get Quick Quote</button>
+
+    <form id="quickBookingForm"
+          class="booking-form-compact"
+          name="quick-booking"
+          method="POST"
+          data-netlify="true">
+
+      <input type="hidden" name="form-name" value="quick-booking">
+
+      <label>
+        Destination
+        <select name="destination" required>
+          <option value="">Select...</option>
+          <option value="uganda">Uganda</option>
+          <option value="kenya">Kenya</option>
+          <option value="tanzania">Tanzania</option>
+          <option value="rwanda">Rwanda</option>
+        </select>
+      </label>
+
+      <label>
+        Travel Date
+        <input type="date" name="travel-date" required>
+      </label>
+
+      <label>
+        Travelers
+        <input type="number" name="travelers" min="1" value="2" required>
+      </label>
+
+      <label>
+        Contact Info
+        <input type="text"
+               name="contact-info"
+               placeholder="WhatsApp / Email"
+               required>
+      </label>
+
+      <button type="submit">
+        Get Quick Quote
+      </button>
+
     </form>
-    <div class="booking-info-compact">Regulated by the Uganda Wildlife Authority & Member of the Uganda Tourism Association.</div>
+
+    <div class="booking-info-compact">
+      Regulated by the Uganda Wildlife Authority & Member of the Uganda Tourism Association.
+    </div>
+
   </div>
 </section>
-
 <!-- ============ WHY CHOOSE US ============ -->
 <section class="why">
   <div class="container">
@@ -1238,7 +1277,7 @@
           <h3 class="tour-name">Murchison Falls National Park</h3>
           <p class="tour-desc">2nd heaviest waterfalls in the world. Uganda's largest park, featuring the big 5, bird watching, rhino tracking, and boat cruises.</p>
           <div class="tour-foot">
-            <a href="murchison-falls.html" class="btn btn-secondary on-dark">Learn More</a>
+            <a href="rhino-tracking.html" class="btn btn-secondary on-dark">Learn More</a>
           </div>
         </div>
       </article>
@@ -1251,7 +1290,7 @@
           <h3 class="tour-name">Bwindi Impenetrable Forest</h3>
           <p class="tour-desc">An ancient forest harbouring most of the world's Silverback mountain gorillas. Premier gorilla trekking and bird watching.</p>
           <div class="tour-foot">
-            <a href="bwindi.html" class="btn btn-secondary on-dark">Learn More</a>
+            <a href="gorilla-trekking.html" class="btn btn-secondary on-dark">Learn More</a>
           </div>
         </div>
       </article>
@@ -1392,21 +1431,62 @@
       </div>
     </div>
 
-    <form class="contact-form" id="ctaForm">
-      <label>Name <span class="req">*</span><input type="text" name="name" required placeholder="Your full name"></label>
-      <label>Email <span class="req">*</span><input type="email" name="email" required placeholder="you@example.com"></label>
-      <label>Phone (WhatsApp) <span class="req">*</span><input type="tel" name="phone" required placeholder="+country number"></label>
-      <label>Country <span class="req">*</span><input type="text" name="country" required placeholder="Your country"></label>
-      <label class="field-full">Safari Package of Interest <select required><option value="">Select a Package</option><option value="gorilla">Gorilla Trekking Safari</option><option value="wildlife">Wildlife Safari</option><option value="luxury">Luxury Safari</option><option value="custom">Custom Itinerary</option></select></label>
-      <label class="field-full">Message <span class="req">*</span><textarea name="message" required placeholder="Tell us about the journey you have in mind — dates, group size, places that call."></textarea></label>
+    <form class="contact-form" id="ctaForm" name="contact-form" method="POST" data-netlify="true">
+
+      <input type="hidden" name="form-name" value="contact-form">
+
+      <label>
+        Name <span class="req">*</span>
+        <input type="text" name="name" required placeholder="Your full name">
+      </label>
+
+      <label>
+        Email <span class="req">*</span>
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+
+      <label>
+        Phone (WhatsApp) <span class="req">*</span>
+        <input type="tel" name="phone" required placeholder="+country number">
+      </label>
+
+      <label>
+        Country <span class="req">*</span>
+        <input type="text" name="country" required placeholder="Your country">
+      </label>
+
+      <label class="field-full">
+        Safari Package of Interest
+        <select name="safari-package" required>
+          <option value="">Select a Package</option>
+          <option value="gorilla">Gorilla Trekking Safari</option>
+          <option value="wildlife">Wildlife Safari</option>
+          <option value="luxury">Luxury Safari</option>
+          <option value="custom">Custom Itinerary</option>
+        </select>
+      </label>
+
+      <label class="field-full">
+        Message <span class="req">*</span>
+        <textarea name="message" required placeholder="Tell us about the journey you have in mind — dates, group size, places that call."></textarea>
+      </label>
+
       <div class="contact-foot">
         <span class="privacy">Your details stay with us · never shared</span>
+
         <button type="submit">
           Send message
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+          <svg width="16" height="16" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
         </button>
       </div>
     </form>
+
   </div>
 </section>
 
@@ -1447,7 +1527,7 @@
           <a href="mailto:bestsafariadventureseastafrica@gmail.com">bestsafariadventureseastafrica@gmail.com</a>
         </address>
         <div class="foot-social">
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a href="https://www.instagram.com/bestsafariadventureseastafrica/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
           <a href="https://www.youtube.com/@bestsafariadventureseastafrica" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9 L16 12 L10 15 Z" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22 V13 h3 l0.5 -4 H14 V7 c0-1.2.5-2 2-2 h2 V1.5 C17 1.2 15.7 1 14.5 1 c-3 0-5 1.8-5 5 v3 H6 v4 h3.5 V22"/></svg></a>
           <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H21l-7.4 8.45L22.5 21h-7.1l-5.55-7.05L3.5 21H.1l7.95-9.05L0 3h7.3l5 6.6L17.6 3zm-1.25 16h1.95L7.85 5H5.75l10.6 14z"/></svg></a>
@@ -1465,19 +1545,19 @@
           <li><a href="safari-packages.html">Safari Packages</a></li>
           <li><a href="contact.html">Contact us</a></li>
           <li><a href="shoebill.html">Shoebill Home Safari</a></li>
-          <li><a href="#">Kampala City Tours</a></li>
+          <li><a href="city-tours.html">Kampala City Tours</a></li>
         </ul>
       </div>
 
       <div class="foot-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#">Gorilla trekking</a></li>
-          <li><a href="#">Bird Watching</a></li>
-          <li><a href="#">Accommodation</a></li>
-          <li><a href="#">Car hire services</a></li>
-          <li><a href="#">Community Engagements</a></li>
-          <li><a href="#">Bike Safaris</a></li>
+          <li><a href="gorilla-trekking.html">Gorilla trekking</a></li>
+          <li><a href="bird-watching.html">Bird Watching</a></li>
+          <li><a href="accomodations.html">Accommodation</a></li>
+          <li><a href="car-hire-services.html">Car hire services</a></li>
+          <li><a href="community-engagements.html">Community Engagements</a></li>
+          <li><a href="bike-safaris.html">Bike Safaris</a></li>
         </ul>
       </div>
 

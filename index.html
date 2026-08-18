@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link href="img/favicon.png" rel="icon" type="image/png">
 
   <style>
     :root {
@@ -392,535 +395,103 @@
     .social-icon:hover { background: var(--color-safari-gold); color: var(--color-safari-dark); transform: translateX(4px); }
 
     /* =====================================================
-   PREMIUM SAFARI HAMBURGER MENU
-====================================================== */
-
-
-    /* -----------------------------------------------------
-       HAMBURGER BUTTON
-    ------------------------------------------------------ */
-
+       PREMIUM SAFARI HAMBURGER MENU
+    ====================================================== */
     .safari-menu-toggle {
-
-      position: fixed;
-
-      top: 20px;
-      right: 20px;
-
-      width: 52px;
-      height: 52px;
-
-      border: none;
-      border-radius: 50%;
-
-      background: #0b3d2e;
-
-      display: none;
-
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-
-      gap: 5px;
-
-      cursor: pointer;
-
-      z-index: 100001;
-
-      box-shadow:
-        0 8px 25px rgba(0,0,0,0.25);
-
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+      position: fixed; top: 20px; right: 20px; width: 52px; height: 52px; border: none; border-radius: 50%;
+      background: #0b3d2e; display: none; align-items: center; justify-content: center; flex-direction: column;
+      gap: 5px; cursor: pointer; z-index: 100001; box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, background 0.3s ease;
     }
-
-
-    .safari-menu-toggle:hover {
-
-      transform: scale(1.08);
-
-      background: #145c43;
-
-    }
-
-
-    .safari-menu-toggle span {
-
-      display: block;
-
-      width: 23px;
-      height: 2px;
-
-      background: #ffffff;
-
-      border-radius: 10px;
-
-      transition:
-        transform 0.35s ease,
-        opacity 0.25s ease,
-        width 0.35s ease;
-    }
-
-
-    /* -----------------------------------------------------
-       HAMBURGER → X ANIMATION
-    ------------------------------------------------------ */
-
-    .safari-menu-toggle.active span:nth-child(1) {
-
-      transform:
-        translateY(7px)
-        rotate(45deg);
-
-    }
-
-
-    .safari-menu-toggle.active span:nth-child(2) {
-
-      opacity: 0;
-
-      width: 0;
-
-    }
-
-
-    .safari-menu-toggle.active span:nth-child(3) {
-
-      transform:
-        translateY(-7px)
-        rotate(-45deg);
-
-    }
-
-
-    /* -----------------------------------------------------
-       DARK OVERLAY
-    ------------------------------------------------------ */
+    .safari-menu-toggle:hover { transform: scale(1.08); background: #145c43; }
+    .safari-menu-toggle span { display: block; width: 23px; height: 2px; background: #ffffff; border-radius: 10px; transition: transform 0.35s ease, opacity 0.25s ease, width 0.35s ease; }
+    .safari-menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .safari-menu-toggle.active span:nth-child(2) { opacity: 0; width: 0; }
+    .safari-menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     .safari-menu-overlay {
-
-      position: fixed;
-
-      inset: 0;
-
-      background: rgba(0,0,0,0.60);
-
-      backdrop-filter: blur(3px);
-
-      -webkit-backdrop-filter: blur(3px);
-
-      opacity: 0;
-
-      visibility: hidden;
-
-      z-index: 99998;
-
-      transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
-
+      position: fixed; inset: 0; background: rgba(0,0,0,0.60); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+      opacity: 0; visibility: hidden; z-index: 99998; transition: opacity 0.35s ease, visibility 0.35s ease;
     }
-
-
-    .safari-menu-overlay.active {
-
-      opacity: 1;
-
-      visibility: visible;
-
-    }
-
-
-    /* -----------------------------------------------------
-       MOBILE MENU
-    ------------------------------------------------------ */
+    .safari-menu-overlay.active { opacity: 1; visibility: visible; }
 
     .safari-mobile-menu {
-
-      position: fixed;
-
-      top: 0;
-
-      right: 0;
-
-      width: min(390px, 88%);
-
-      height: 100vh;
-
-      height: 100dvh;
-
-      background:
-
-        linear-gradient(
-          145deg,
-          #073526,
-          #0c4634 60%,
-          #082c20
-        );
-
-      z-index: 100000;
-
-      transform: translateX(105%);
-
-      transition:
-        transform 0.45s cubic-bezier(.77,0,.18,1);
-
-      display: flex;
-
-      flex-direction: column;
-
-      overflow-y: auto;
-
-      box-shadow:
-        -15px 0 45px rgba(0,0,0,0.25);
-
+      position: fixed; top: 0; right: 0; width: min(390px, 88%); height: 100vh; height: 100dvh;
+      background: linear-gradient(145deg, #073526, #0c4634 60%, #082c20); z-index: 100000;
+      transform: translateX(105%); transition: transform 0.45s cubic-bezier(.77,0,.18,1);
+      display: flex; flex-direction: column; overflow-y: auto; box-shadow: -15px 0 45px rgba(0,0,0,0.25);
     }
+    .safari-mobile-menu.active { transform: translateX(0); }
 
-
-    .safari-mobile-menu.active {
-
-      transform: translateX(0);
-
-    }
-
-
-    /* -----------------------------------------------------
-       MENU HEADER
-    ------------------------------------------------------ */
-
-    .safari-menu-header {
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      padding: 25px 25px 20px;
-
-      border-bottom:
-        1px solid rgba(255,255,255,0.12);
-
-    }
-
-
-    .safari-menu-brand {
-
-      display: flex;
-
-      flex-direction: column;
-
-    }
-
-
-    .safari-menu-brand span {
-
-      color: #ffffff;
-
-      font-size: 22px;
-
-      font-weight: 700;
-
-      letter-spacing: 0.5px;
-
-    }
-
-
-    .safari-menu-brand small {
-
-      color: #d4a853;
-
-      font-size: 12px;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-
-      margin-top: 3px;
-
-    }
-
-
-    /* -----------------------------------------------------
-       CLOSE BUTTON
-    ------------------------------------------------------ */
+    .safari-menu-header { display: flex; align-items: center; justify-content: space-between; padding: 25px 25px 20px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .safari-menu-brand { display: flex; flex-direction: column; }
+    .safari-menu-brand span { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+    .safari-menu-brand small { color: #d4a853; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin-top: 3px; }
 
     .safari-menu-close {
-
-      width: 42px;
-      height: 42px;
-
-      border: 1px solid
-      rgba(255,255,255,0.25);
-
-      background:
-        rgba(255,255,255,0.08);
-
-      color: #ffffff;
-
-      border-radius: 50%;
-
-      font-size: 30px;
-
-      line-height: 1;
-
-      cursor: pointer;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease;
-
+      width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
+      color: #ffffff; border-radius: 50%; font-size: 30px; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
     }
+    .safari-menu-close:hover { transform: rotate(90deg); background: #d4a853; color: #082c20; }
 
-
-    .safari-menu-close:hover {
-
-      transform: rotate(90deg);
-
-      background: #d4a853;
-
-      color: #082c20;
-
-    }
-
-
-    /* -----------------------------------------------------
-       NAVIGATION LINKS
-    ------------------------------------------------------ */
-
-    .safari-menu-links {
-
-      display: flex;
-
-      flex-direction: column;
-
-      padding: 15px 25px;
-
-      flex: 1;
-
-    }
-
-
+    .safari-menu-links { display: flex; flex-direction: column; padding: 15px 25px; flex: 1; }
     .safari-menu-links a {
-
-      position: relative;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      padding: 18px 5px;
-
-      color: #ffffff;
-
-      text-decoration: none;
-
-      font-size: 18px;
-
-      font-weight: 500;
-
-      border-bottom:
-        1px solid rgba(255,255,255,0.10);
-
-      transition:
-        color 0.3s ease,
-        padding-left 0.3s ease;
-
+      position: relative; display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 5px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.10); transition: color 0.3s ease, padding-left 0.3s ease;
     }
+    .safari-menu-links a:hover { color: #d4a853; padding-left: 12px; }
+    .safari-menu-links a small { color: rgba(255,255,255,0.35); font-size: 11px; letter-spacing: 1px; }
+    .safari-menu-links .safari-menu-contact { color: #d4a853; }
 
-
-    .safari-menu-links a:hover {
-
-      color: #d4a853;
-
-      padding-left: 12px;
-
-    }
-
-
-    .safari-menu-links a small {
-
-      color:
-        rgba(255,255,255,0.35);
-
-      font-size: 11px;
-
-      letter-spacing: 1px;
-
-    }
-
-
-    .safari-menu-links .safari-menu-contact {
-
-      color: #d4a853;
-
-    }
-
-
-    /* -----------------------------------------------------
-       MENU FOOTER
-    ------------------------------------------------------ */
-
-    .safari-menu-footer {
-
-      padding: 25px;
-
-      border-top:
-        1px solid rgba(255,255,255,0.12);
-
-    }
-
-
-    .safari-menu-footer p {
-
-      color:
-        rgba(255,255,255,0.65);
-
-      font-size: 13px;
-
-      line-height: 1.6;
-
-      margin-bottom: 18px;
-
-    }
-
-
+    .safari-menu-footer { padding: 25px; border-top: 1px solid rgba(255,255,255,0.12); }
+    .safari-menu-footer p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.6; margin-bottom: 18px; }
     .safari-menu-cta {
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      width: 100%;
-
-      padding: 14px 20px;
-
-      background: #d4a853;
-
-      color: #102e22;
-
-      text-decoration: none;
-
-      border-radius: 30px;
-
-      font-weight: 700;
-
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease;
-
+      display: flex; align-items: center; justify-content: center; width: 100%; padding: 14px 20px;
+      background: #d4a853; color: #102e22; text-decoration: none; border-radius: 30px; font-weight: 700;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
+    .safari-menu-cta:hover { transform: translateY(-2px); background: #e6bd6a; }
 
-
-    .safari-menu-cta:hover {
-
-      transform: translateY(-2px);
-
-      background: #e6bd6a;
-
-    }
-
-
-    /* -----------------------------------------------------
-       MOBILE DEVICES
-    ------------------------------------------------------ */
-
-    @media (max-width: 991px) {
-
-      .safari-menu-toggle {
-
-        display: flex;
-
-      }
-
-    }
-
-
-    /* -----------------------------------------------------
-       SMALL PHONES
-    ------------------------------------------------------ */
-
-    @media (max-width: 480px) {
-
-      .safari-menu-toggle {
-
-        top: 14px;
-
-        right: 14px;
-
-        width: 48px;
-
-        height: 48px;
-
-      }
-
-
-      .safari-mobile-menu {
-
-        width: 92%;
-
-      }
-
-
-      .safari-menu-links a {
-
-        font-size: 17px;
-
-        padding: 16px 5px;
-
-      }
-
-    }
-
-
-    /* -----------------------------------------------------
-       PREVENT BACKGROUND SCROLLING
-    ------------------------------------------------------ */
-
-    body.safari-menu-open {
-
-      overflow: hidden;
-
-    }
-
-    /* ============ RESPONSIVE ============ */
+    /* ============ ENHANCED RESPONSIVE ============ */
     @media (max-width: 960px) {
+      section { padding: clamp(48px, 8vw, 80px) 0; }
       .nav-links, .nav-cta { display: none; }
       .nav-toggle { display: inline-flex; }
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 80px 0 96px; }
-      .hero-art { aspect-ratio: 4/3; }
-      .dest-grid, .tours-grid { grid-template-columns: 1fr 1fr; }
-      .why-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-      .testi-inner { grid-template-columns: 1fr; gap: 40px; }
-      .testi-portrait { max-width: 320px; aspect-ratio: 1/1; }
-      .foot-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-      .trust-inner { justify-content: flex-start; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 100px 0 60px; text-align: center; }
+      .hero-art { aspect-ratio: 16/9; max-width: 600px; margin: 0 auto; }
+      .dest-grid, .tours-grid, .why-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .testi-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .testi-portrait { max-width: 280px; aspect-ratio: 1/1; margin: 0 auto; }
+      .testi-attribution { padding-left: 0; border-left: none; border-top: 2px solid var(--color-safari-orange); padding-top: 16px; display: inline-block; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .trust-inner { justify-content: center; flex-wrap: wrap; gap: 16px; }
       .trust-sep { display: none; }
       .booking-form-compact { grid-template-columns: 1fr 1fr; }
       .contact-inner { grid-template-columns: 1fr; gap: 48px; }
       .floating-social { display: none; }
+      .section-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .section-head .left { max-width: 100%; }
     }
+
     @media (max-width: 560px) {
+      section { padding: 40px 0; }
+      .container, .nav-container { padding: 0 16px; }
       .dest-grid, .tours-grid, .why-grid { grid-template-columns: 1fr; }
-      .foot-grid { grid-template-columns: 1fr; }
-      .contact-form { grid-template-columns: 1fr; padding: 24px; }
+      .foot-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-form { grid-template-columns: 1fr; padding: 20px; }
       .contact-form .field-full { grid-column: span 1; }
-      .contact-foot { grid-column: span 1; flex-direction: column; align-items: stretch; }
+      .contact-foot { grid-column: span 1; flex-direction: column; align-items: stretch; gap: 16px; }
       .contact-form button { width: 100%; justify-content: center; }
-      .foot-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
-      .booking-form-compact { grid-template-columns: 1fr; }
+      .foot-bottom { flex-direction: column; gap: 12px; align-items: center; text-align: center; }
+      .booking-form-compact { grid-template-columns: 1fr; padding: 20px; }
+      .booking-form-compact button { width: 100%; }
+      .hero-title { font-size: 2rem; }
+      .section-title { font-size: 1.75rem; }
+      .hero-ctas { flex-direction: column; gap: 12px; }
+      .hero-ctas .btn { width: 100%; text-align: center; justify-content: center; }
+      .safari-menu-toggle { top: 14px; right: 14px; width: 48px; height: 48px; }
     }
 
     .mobile-menu { display: none; background: var(--color-safari-darker); padding: 18px var(--container-pad) 24px; border-top: 1px solid var(--border-on-dark); }
@@ -965,78 +536,28 @@
 <!-- =====================================================
      PREMIUM SAFARI MOBILE HAMBURGER MENU
 ====================================================== -->
-
-<!-- Hamburger Button -->
-<button
-  class="safari-menu-toggle"
-  id="safariMenuToggle"
-  type="button"
-  aria-label="Open navigation menu"
-  aria-expanded="false"
-  aria-controls="safariMobileMenu">
-
-  <span></span>
-  <span></span>
-  <span></span>
+<button class="safari-menu-toggle" id="safariMenuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="safariMobileMenu">
+  <span></span><span></span><span></span>
 </button>
 
+<div class="safari-menu-overlay" id="safariMenuOverlay"></div>
 
-<!-- Dark Overlay -->
-<div
-  class="safari-menu-overlay"
-  id="safariMenuOverlay">
-</div>
-
-
-<!-- Mobile Navigation -->
-<nav
-  class="safari-mobile-menu"
-  id="safariMobileMenu"
-  aria-hidden="true">
-
-  <!-- Menu Header -->
+<nav class="safari-mobile-menu" id="safariMobileMenu" aria-hidden="true">
   <div class="safari-menu-header">
-
     <div class="safari-menu-brand">
       <img src="./img/company-logo.png" alt="Best Safari Adventures Logo" />
     </div>
   </div>
-  <!-- Navigation Links -->
   <div class="safari-menu-links">
-    <a href="index.html">
-      <span>Home</span>
-      <small>01</small>
-    </a>
-
-    <a href="about.html">
-      <span>About Us</span>
-      <small>02</small>
-    </a>
-
-    <a href="safari-packages.html">
-      <span>Safari Packages</span>
-      <small>03</small>
-    </a>
-
-    <a href="gorilla-trekking.html">
-      <span>Gorilla Trekking</span>
-      <small>04</small>
-    </a>
-
-    <a href="contact.html" class="safari-menu-contact">
-      <span>Contact Us</span>
-      <small>05</small>
-    </a>
+    <a href="index.html"><span>Home</span><small>01</small></a>
+    <a href="about.html"><span>About Us</span><small>02</small></a>
+    <a href="safari-packages.html"><span>Safari Packages</span><small>03</small></a>
+    <a href="gorilla-trekking.html"><span>Gorilla Trekking</span><small>04</small></a>
+    <a href="contact.html" class="safari-menu-contact"><span>Contact Us</span><small>05</small></a>
   </div>
-  <!-- Menu Footer -->
   <div class="safari-menu-footer">
-
-    <p>Adventure . Learn . Love . Nature<br>
-      Experience Unforgettable East-Africa Safaris.</p>
-    <a href="contact.html"
-       class="safari-menu-cta">
-      Plan Your Safari
-    </a>
+    <p>Adventure . Learn . Love . Nature<br>Experience Unforgettable East-Africa Safaris.</p>
+    <a href="contact.html" class="safari-menu-cta">Plan Your Safari</a>
   </div>
 </nav>
 
@@ -1046,39 +567,11 @@
   <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22 V13 h3 l0.5 -4 H14 V7 c0-1.2.5-2 2-2 h2 V1.5 C17 1.2 15.7 1 14.5 1 c-3 0-5 1.8-5 5 v3 H6 v4 h3.5 V22"/></svg></a>
   <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
   <a href="https://x.com" target="_blank" class="social-icon" title="x"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H21l-7.4 8.45L22.5 21h-7.1l-5.55-7.05L3.5 21H.1l7.95-9.05L0 3h7.3l5 6.6L17.6 3zm-1.25 16h1.95L7.85 5H5.75l10.6 14z"/></svg></a>
-  <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="3" y="3" width="18" height="18" rx="3"/>
-    <circle cx="8" cy="8" r="1"/>
-    <path d="M8 11V17"/>
-    <path d="M12 17V13.8C12 12.2 13 11 14.6 11C16.2 11 17 12.1 17 13.8V17"/>
-    <path d="M12 13V11"/>
-  </svg></a>
-  <a href="https://www.tiktok.com/@bestsafariadventureseast?lang=en" target="_blank" class="social-icon" title="Tiktok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 4V14.5A3.5 3.5 0 1 1 10.5 11"/>
-    <path d="M14 4C15 6 16.8 7.4 19 7.5"/>
-  </svg></a>
-  <a href="https://snapchat.com" target="_blank" class="social-icon" title="Snapchat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 3
-             C10 3 8.5 4.6 8.5 6.8
-             V8.2
-             C8.5 9.5 7.7 10.6 6.6 11
-             C7.3 11.8 8.1 12.2 9 12.3
-             C9.2 14.5 10.4 16 12 16
-             C13.6 16 14.8 14.5 15 12.3
-             C15.9 12.2 16.7 11.8 17.4 11
-             C16.3 10.6 15.5 9.5 15.5 8.2
-             V6.8
-             C15.5 4.6 14 3 12 3Z"/>
-    <path d="M8.5 16.5C9.8 17.2 10.9 17.6 12 17.6C13.1 17.6 14.2 17.2 15.5 16.5"/>
-  </svg></a>
-  <a href="https://threads.com" target="_blank" class="social-icon" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 4C8.5 4 6 6.3 6 10C6 13.7 8.5 16 12 16C15 16 17 14.5 17 12C17 9.8 15.2 8.5 12.8 8.5C10.9 8.5 9.5 9.6 9.5 11.2C9.5 12.8 10.8 14 12.8 14C15.5 14 18 12.5 18 9.2C18 5.8 15.5 4 12 4Z"/>
-  </svg></a>
-  <a href="https://telegram.com" target="_blank" class="social-icon" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 3L3 11L10 13L12 20L21 3Z"/>
-    <path d="M10 13L21 3"/>
-  </svg></a>
-
+  <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1"/><path d="M8 11V17"/><path d="M12 17V13.8C12 12.2 13 11 14.6 11C16.2 11 17 12.1 17 13.8V17"/><path d="M12 13V11"/></svg></a>
+  <a href="https://www.tiktok.com/@bestsafariadventureseast?lang=en" target="_blank" class="social-icon" title="Tiktok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4V14.5A3.5 3.5 0 1 1 10.5 11"/><path d="M14 4C15 6 16.8 7.4 19 7.5"/></svg></a>
+  <a href="https://snapchat.com" target="_blank" class="social-icon" title="Snapchat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 C10 3 8.5 4.6 8.5 6.8 V8.2 C8.5 9.5 7.7 10.6 6.6 11 C7.3 11.8 8.1 12.2 9 12.3 C9.2 14.5 10.4 16 12 16 C13.6 16 14.8 14.5 15 12.3 C15.9 12.2 16.7 11.8 17.4 11 C16.3 10.6 15.5 9.5 15.5 8.2 V6.8 C15.5 4.6 14 3 12 3Z"/><path d="M8.5 16.5C9.8 17.2 10.9 17.6 12 17.6C13.1 17.6 14.2 17.2 15.5 16.5"/></svg></a>
+  <a href="https://threads.com" target="_blank" class="social-icon" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4C8.5 4 6 6.3 6 10C6 13.7 8.5 16 12 16C15 16 17 14.5 17 12C17 9.8 15.2 8.5 12.8 8.5C10.9 8.5 9.5 9.6 9.5 11.2C9.5 12.8 10.8 14 12.8 14C15.5 14 18 12.5 18 9.2C18 5.8 15.5 4 12 4Z"/></svg></a>
+  <a href="https://telegram.com" target="_blank" class="social-icon" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 11L10 13L12 20L21 3Z"/><path d="M10 13L21 3"/></svg></a>
 </div>
 
 <!-- ============ HERO ============ -->
@@ -1119,41 +612,65 @@
 <section class="quick-booking" id="booking">
   <div class="container">
 
-    <form id="quickBookingForm"
-          class="booking-form-compact"
-          name="quick-booking"
-          method="POST"
-          data-netlify="true">
+    <form
+      id="quickBookingForm"
+      class="booking-form-compact"
+      name="quick-booking"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
 
+      <!-- Netlify form identification -->
       <input type="hidden" name="form-name" value="quick-booking">
+
+      <!-- Spam protection -->
+      <p class="hidden-field" style="display:none;">
+        <label>
+          Don't fill this out if you're human:
+          <input name="bot-field">
+        </label>
+      </p>
 
       <label>
         Destination
         <select name="destination" required>
           <option value="">Select...</option>
-          <option value="uganda">Uganda</option>
-          <option value="kenya">Kenya</option>
-          <option value="tanzania">Tanzania</option>
-          <option value="rwanda">Rwanda</option>
+          <option value="Uganda">Uganda</option>
+          <option value="Kenya">Kenya</option>
+          <option value="Tanzania">Tanzania</option>
+          <option value="Rwanda">Rwanda</option>
         </select>
       </label>
 
       <label>
         Travel Date
-        <input type="date" name="travel-date" required>
+        <input
+          type="date"
+          name="travel-date"
+          required
+        >
       </label>
 
       <label>
         Travelers
-        <input type="number" name="travelers" min="1" value="2" required>
+        <input
+          type="number"
+          name="travelers"
+          min="1"
+          value="2"
+          required
+        >
       </label>
 
       <label>
         Contact Info
-        <input type="text"
-               name="contact-info"
-               placeholder="WhatsApp / Email"
-               required>
+        <input
+          type="text"
+          name="contact-info"
+          placeholder="Email or WhatsApp number"
+          required
+        >
       </label>
 
       <button type="submit">
@@ -1168,6 +685,9 @@
 
   </div>
 </section>
+
+<!-- ============END QUICK BOOKING ============ -->
+
 <!-- ============ WHY CHOOSE US ============ -->
 <section class="why">
   <div class="container">
@@ -1338,27 +858,22 @@
         <h3>⦁ Hiking & Boat Cruises</h3>
         <p>Mount Kenya, Rwenzori, Sabyinyo, Elgon, Kilimanjaro, and scenic Nile boat cruises.</p>
       </div>
-      <!-- added services-->
       <div class="why-cell">
         <h3>⦁ Football Tourism</h3>
         <p>Total Energies African Cup Of Nations (AFCON 2027) Execute Hospitality on Match-day and Other-days.</p>
       </div>
-
       <div class="why-cell">
         <h3>⦁ Shoebill Tracking</h3>
         <p>In Murchison Falls National Parks and Mabamba Swamp this Bird Spiece is found in Uganda only.</p>
       </div>
-
       <div class="why-cell">
         <h3>⦁ The Great Migration</h3>
         <p>In Serengeti National Parks when Animals migrate in thousands at the same time.</p>
       </div>
-
       <div class="why-cell">
         <h3>⦁ Cultural Engagements</h3>
         <p>East-Africa alone has over 200 different Cultures from the Masai, Abatwa, Baganda, Bachwezi e.t.c.</p>
       </div>
-      <!--end of added services -->
     </div>
   </div>
 </section>
@@ -1366,8 +881,7 @@
 <!-- ============ TESTIMONIAL ============ -->
 <section class="testi">
   <div class="container testi-inner">
-    <div class="testi-portrait" role="img" aria-label="Satisfied traveler in Uganda">
-    </div>
+    <div class="testi-portrait" role="img" aria-label="Satisfied traveler in Uganda"></div>
     <div>
       <span class="eyebrow">Guest Reviews</span>
       <blockquote>Our gorilla trekking experience was absolutely phenomenal! The guides were knowledgeable, accommodations luxurious, and every detail perfectly arranged. Best wildlife tourism company in East Africa!</blockquote>
@@ -1431,62 +945,125 @@
       </div>
     </div>
 
-    <form class="contact-form" id="ctaForm" name="contact-form" method="POST" data-netlify="true">
+    <!-- ============ CONTACT FORM ============ -->
+    <form
+      class="contact-form"
+      id="ctaForm"
+      name="contact-form"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
 
+      <!-- Netlify form identification -->
       <input type="hidden" name="form-name" value="contact-form">
+
+      <!-- Spam protection -->
+      <p class="hidden-field" style="display:none;">
+        <label>
+          Don't fill this out if you're human:
+          <input name="bot-field">
+        </label>
+      </p>
 
       <label>
         Name <span class="req">*</span>
-        <input type="text" name="name" required placeholder="Your full name">
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Your full name"
+        >
       </label>
 
       <label>
         Email <span class="req">*</span>
-        <input type="email" name="email" required placeholder="you@example.com">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+        >
       </label>
 
       <label>
         Phone (WhatsApp) <span class="req">*</span>
-        <input type="tel" name="phone" required placeholder="+country number">
+        <input
+          type="tel"
+          name="phone"
+          required
+          placeholder="+country number"
+        >
       </label>
 
       <label>
         Country <span class="req">*</span>
-        <input type="text" name="country" required placeholder="Your country">
+        <input
+          type="text"
+          name="country"
+          required
+          placeholder="Your country"
+        >
       </label>
 
       <label class="field-full">
         Safari Package of Interest
         <select name="safari-package" required>
           <option value="">Select a Package</option>
-          <option value="gorilla">Gorilla Trekking Safari</option>
-          <option value="wildlife">Wildlife Safari</option>
-          <option value="luxury">Luxury Safari</option>
-          <option value="custom">Custom Itinerary</option>
+          <option value="Gorilla Trekking Safari">
+            Gorilla Trekking Safari
+          </option>
+          <option value="Wildlife Safari">
+            Wildlife Safari
+          </option>
+          <option value="Luxury Safari">
+            Luxury Safari
+          </option>
+          <option value="Custom Itinerary">
+            Custom Itinerary
+          </option>
         </select>
       </label>
 
       <label class="field-full">
         Message <span class="req">*</span>
-        <textarea name="message" required placeholder="Tell us about the journey you have in mind — dates, group size, places that call."></textarea>
+        <textarea
+          name="message"
+          required
+          placeholder="Tell us about the journey you have in mind — dates, group size, places that call."
+        ></textarea>
       </label>
 
       <div class="contact-foot">
-        <span class="privacy">Your details stay with us · never shared</span>
+
+    <span class="privacy">
+      Your details stay with us · never shared
+    </span>
 
         <button type="submit">
           Send message
 
-          <svg width="16" height="16" viewBox="0 0 24 24"
-               fill="none" stroke="currentColor" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <path d="M5 12h14"/>
             <path d="m12 5 7 7-7 7"/>
           </svg>
+
         </button>
+
       </div>
+
     </form>
 
+  <!-- ======end contact form====== -->
   </div>
 </section>
 
@@ -1531,10 +1108,7 @@
           <a href="https://www.youtube.com/@bestsafariadventureseastafrica" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9 L16 12 L10 15 Z" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22 V13 h3 l0.5 -4 H14 V7 c0-1.2.5-2 2-2 h2 V1.5 C17 1.2 15.7 1 14.5 1 c-3 0-5 1.8-5 5 v3 H6 v4 h3.5 V22"/></svg></a>
           <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H21l-7.4 8.45L22.5 21h-7.1l-5.55-7.05L3.5 21H.1l7.95-9.05L0 3h7.3l5 6.6L17.6 3zm-1.25 16h1.95L7.85 5H5.75l10.6 14z"/></svg></a>
-          <a href="https://www.tiktok.com/@bestsafariadventureseast?lang=en" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 4V14.5A3.5 3.5 0 1 1 10.5 11"/>
-            <path d="M14 4C15 6 16.8 7.4 19 7.5"/>
-          </svg></a>
+          <a href="https://www.tiktok.com/@bestsafariadventureseast?lang=en" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4V14.5A3.5 3.5 0 1 1 10.5 11"/><path d="M14 4C15 6 16.8 7.4 19 7.5"/></svg></a>
         </div>
       </div>
 
@@ -1581,19 +1155,155 @@
 <!-- Floating WhatsApp (Right Bottom) -->
 <div class="floating-whatsapp">
   <a href="https://wa.me/256757212707" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-                                                                                                           alt="WhatsApp"></a>
-
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  </a>
 </div>
 
-<script>
-  // Mobile Menu Toggle
-  const mobileMenuToggle = document.getElementById('mm') ? document.querySelector('.nav-toggle') : null;
-  if(mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
-      document.getElementById('mm').classList.toggle('open');
-    });
+
+  <script>
+    // ==========================================
+    // NETLIFY FORM SUBMISSION HANDLER
+    // ==========================================
+
+    const handleNetlifySubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    if (!submitBtn) return;
+
+    const originalBtnText = submitBtn.innerHTML;
+
+    submitBtn.innerHTML = 'Sending...';
+    submitBtn.disabled = true;
+
+    try {
+    const response = await fetch("/", {
+    method: "POST",
+    headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+    body: new URLSearchParams(formData).toString()
+  });
+
+    if (!response.ok) {
+    throw new Error(
+    `Netlify returned HTTP ${response.status}`
+    );
   }
+
+    alert(
+    "Thank you! Your request has been submitted successfully. We will contact you shortly."
+    );
+
+    form.reset();
+
+  } catch (error) {
+
+    console.error("Netlify form submission error:", error);
+
+    alert(
+    "Oops! There was a problem submitting your form. Please try again or contact us via WhatsApp."
+    );
+
+  } finally {
+
+    submitBtn.innerHTML = originalBtnText;
+    submitBtn.disabled = false;
+
+  }
+  };
+
+
+    // ==========================================
+    // QUICK BOOKING FORM
+    // ==========================================
+
+    const quickBookingForm =
+    document.getElementById("quickBookingForm");
+
+    if (quickBookingForm) {
+    quickBookingForm.addEventListener(
+      "submit",
+      handleNetlifySubmit
+    );
+  }
+
+
+    // ==========================================
+    // CONTACT FORM
+    // ==========================================
+
+    const ctaForm =
+    document.getElementById("ctaForm");
+
+    if (ctaForm) {
+    ctaForm.addEventListener(
+      "submit",
+      handleNetlifySubmit
+    );
+  }
+    
+  // ==========================================
+  // PREMIUM SAFARI HAMBURGER MENU
+  // ==========================================
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("safariMenuToggle");
+    const mobileMenu = document.getElementById("safariMobileMenu");
+    const menuOverlay = document.getElementById("safariMenuOverlay");
+    const menuClose = document.getElementById("safariMenuClose");
+    const menuLinks = document.querySelectorAll(".safari-menu-links a, .safari-menu-cta");
+
+    function openSafariMenu() {
+      mobileMenu.classList.add("active");
+      menuOverlay.classList.add("active");
+      menuToggle.classList.add("active");
+      menuToggle.setAttribute("aria-expanded", "true");
+      mobileMenu.setAttribute("aria-hidden", "false");
+      document.body.classList.add("safari-menu-open");
+    }
+
+    function closeSafariMenu() {
+      mobileMenu.classList.remove("active");
+      menuOverlay.classList.remove("active");
+      menuToggle.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      mobileMenu.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("safari-menu-open");
+    }
+
+    menuToggle.addEventListener("click", function () {
+      if (mobileMenu.classList.contains("active")) {
+        closeSafariMenu();
+      } else {
+        openSafariMenu();
+      }
+    });
+
+    menuClose.addEventListener("click", closeSafariMenu);
+    menuOverlay.addEventListener("click", closeSafariMenu);
+
+    menuLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeSafariMenu();
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+        closeSafariMenu();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 991) {
+        closeSafariMenu();
+      }
+    });
+  });
 
   // FAQ Accordion
   document.querySelectorAll('.faq-question').forEach(question => {
@@ -1603,26 +1313,6 @@
       document.querySelectorAll('.faq-item').forEach(item => { item.classList.remove('active'); });
       if (!isActive) { faqItem.classList.add('active'); }
     });
-  });
-
-  // Form Submissions
-  document.getElementById('quickBookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
-    const message = `*New Safari Inquiry*%0A%0A*Destination:* ${data.get('Destination') || 'Not provided'}%0A*Date:* ${data.get('Travel Date') || 'Not provided'}%0A*Travelers:* ${data.get('Travelers') || 'Not provided'}%0A*Contact:* ${data.get('Contact Info') || 'Not provided'}`;
-    window.open(`https://wa.me/256757212707?text=${encodeURIComponent(message)}`, '_blank');
-    this.reset();
-  });
-
-  document.getElementById('ctaForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
-    const message = `*New Safari Quote Request*%0A%0A*Name:* ${data.name}%0A*Email:* ${data.email}%0A*Phone:* ${data.phone}%0A*Country:* ${data.country}%0A*Package:* ${data.querySelector('select').value}%0A*Message:* ${data.message}`;
-    window.open(`https://wa.me/256757212707?text=${encodeURIComponent(message)}`, '_blank');
-    alert('Thank you! Redirecting to WhatsApp to complete your request.');
-    this.reset();
   });
 
   // Smooth Scroll for anchor links
@@ -1638,196 +1328,6 @@
         }
       }
     });
-  });
-</script>
-
-<script>
-  /* =====================================================
-     PREMIUM SAFARI HAMBURGER MENU
-  ====================================================== */
-
-  document.addEventListener("DOMContentLoaded", function () {
-
-    const menuToggle =
-      document.getElementById("safariMenuToggle");
-
-    const mobileMenu =
-      document.getElementById("safariMobileMenu");
-
-    const menuOverlay =
-      document.getElementById("safariMenuOverlay");
-
-    const menuClose =
-      document.getElementById("safariMenuClose");
-
-    const menuLinks =
-      document.querySelectorAll(
-        ".safari-menu-links a, .safari-menu-cta"
-      );
-
-
-    /* -----------------------------------------------
-       OPEN MENU
-    ------------------------------------------------ */
-
-    function openSafariMenu() {
-
-      mobileMenu.classList.add("active");
-
-      menuOverlay.classList.add("active");
-
-      menuToggle.classList.add("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-      mobileMenu.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-      document.body.classList.add(
-        "safari-menu-open"
-      );
-
-    }
-
-
-    /* -----------------------------------------------
-       CLOSE MENU
-    ------------------------------------------------ */
-
-    function closeSafariMenu() {
-
-      mobileMenu.classList.remove("active");
-
-      menuOverlay.classList.remove("active");
-
-      menuToggle.classList.remove("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      mobileMenu.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-      document.body.classList.remove(
-        "safari-menu-open"
-      );
-
-    }
-
-
-    /* -----------------------------------------------
-       TOGGLE MENU
-    ------------------------------------------------ */
-
-    menuToggle.addEventListener(
-      "click",
-      function () {
-
-        if (
-          mobileMenu.classList.contains(
-            "active"
-          )
-        ) {
-
-          closeSafariMenu();
-
-        } else {
-
-          openSafariMenu();
-
-        }
-
-      }
-    );
-
-
-    /* -----------------------------------------------
-       CLOSE BUTTON
-    ------------------------------------------------ */
-
-    menuClose.addEventListener(
-      "click",
-      closeSafariMenu
-    );
-
-
-    /* -----------------------------------------------
-       CLICK OUTSIDE MENU
-    ------------------------------------------------ */
-
-    menuOverlay.addEventListener(
-      "click",
-      closeSafariMenu
-    );
-
-
-    /* -----------------------------------------------
-       CLOSE AFTER CLICKING LINK
-    ------------------------------------------------ */
-
-    menuLinks.forEach(function (link) {
-
-      link.addEventListener(
-        "click",
-        function () {
-
-          closeSafariMenu();
-
-        }
-      );
-
-    });
-
-
-    /* -----------------------------------------------
-       ESCAPE KEY
-    ------------------------------------------------ */
-
-    document.addEventListener(
-      "keydown",
-      function (event) {
-
-        if (
-          event.key === "Escape" &&
-          mobileMenu.classList.contains(
-            "active"
-          )
-        ) {
-
-          closeSafariMenu();
-
-        }
-
-      }
-    );
-
-
-    /* -----------------------------------------------
-       RESET IF SCREEN BECOMES DESKTOP
-    ------------------------------------------------ */
-
-    window.addEventListener(
-      "resize",
-      function () {
-
-        if (window.innerWidth > 991) {
-
-          closeSafariMenu();
-
-        }
-
-      }
-    );
-
   });
 </script>
 

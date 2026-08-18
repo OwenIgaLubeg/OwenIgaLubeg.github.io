@@ -1179,195 +1179,6 @@
 
 
   <script>
-    <script>
-      // ==========================================================
-      // BEST SAFARI ADVENTURES
-      // NETLIFY FORMS SUBMISSION HANDLER
-      // ==========================================================
-
-      document.addEventListener("DOMContentLoaded", function () {
-
-      // ----------------------------------------------------------
-      // SUBMIT ANY NETLIFY FORM
-      // ----------------------------------------------------------
-
-      async function submitNetlifyForm(event) {
-
-        event.preventDefault();
-
-        const form = event.target;
-        const submitButton = form.querySelector(
-          'button[type="submit"]'
-        );
-
-        // Safety check
-        if (!submitButton) {
-          console.error("Submit button not found.");
-          return;
-        }
-
-        // Get the Netlify form name
-        const formName = form.getAttribute("name");
-
-        if (!formName) {
-          console.error("Netlify form name is missing.");
-          return;
-        }
-
-        // --------------------------------------------------------
-        // Collect all form fields
-        // --------------------------------------------------------
-
-        const formData = new FormData(form);
-
-        // Make absolutely sure Netlify receives the correct form name
-        formData.set("form-name", formName);
-
-        // --------------------------------------------------------
-        // Save original button
-        // --------------------------------------------------------
-
-        const originalButtonHTML = submitButton.innerHTML;
-
-        // --------------------------------------------------------
-        // Loading state
-        // --------------------------------------------------------
-
-        submitButton.disabled = true;
-
-        if (formName === "quick-booking") {
-
-          submitButton.innerHTML = "Sending...";
-
-        } else {
-
-          submitButton.innerHTML = "Sending...";
-
-        }
-
-        try {
-
-          // ------------------------------------------------------
-          // Send submission to Netlify Forms
-          // ------------------------------------------------------
-
-          const response = await fetch("/", {
-            method: "POST",
-
-            headers: {
-              "Content-Type":
-                "application/x-www-form-urlencoded"
-            },
-
-            body: new URLSearchParams(formData).toString()
-          });
-
-          // ------------------------------------------------------
-          // Check Netlify response
-          // ------------------------------------------------------
-
-          if (!response.ok) {
-
-            throw new Error(
-              "Netlify returned HTTP " + response.status
-            );
-
-          }
-
-          // ------------------------------------------------------
-          // SUCCESS
-          // ------------------------------------------------------
-
-          console.log(
-            "Netlify submission successful:",
-            formName
-          );
-
-          if (formName === "quick-booking") {
-
-            alert(
-              "Thank you! Your quick booking request has been received. We will contact you shortly."
-            );
-
-          } else if (formName === "contact-form") {
-
-            alert(
-              "Thank you! Your message has been received. We will contact you shortly."
-            );
-
-          }
-
-          // Clear form
-          form.reset();
-
-        } catch (error) {
-
-          // ------------------------------------------------------
-          // ERROR
-          // ------------------------------------------------------
-
-          console.error(
-            "Netlify form submission failed:",
-            error
-          );
-
-          alert(
-            "Oops! Something went wrong while sending your request. Please try again or contact us via WhatsApp."
-          );
-
-        } finally {
-
-          // ------------------------------------------------------
-          // Restore button
-          // ------------------------------------------------------
-
-          submitButton.innerHTML =
-            originalButtonHTML;
-
-          submitButton.disabled = false;
-
-        }
-
-        // ==========================================================
-        // QUICK BOOKING FORM
-        // ==========================================================
-
-        const quickBookingForm =
-          document.getElementById("quickBookingForm");
-
-        if (quickBookingForm) {
-
-          quickBookingForm.addEventListener(
-            "submit",
-            submitNetlifyForm
-          );
-
-          console.log(
-            "Netlify quick-booking form is ready."
-          );
-
-        }
-
-
-        // ==========================================================
-        // CONTACT FORM
-        // ==========================================================
-
-        const ctaForm =
-          document.getElementById("ctaForm");
-
-        if (ctaForm) {
-
-          ctaForm.addEventListener(
-            "submit",
-            submitNetlifyForm
-          );
-
-          console.log(
-            "Netlify contact-form is ready."
-          );
-
-        }
 
         // ==========================================
         // PREMIUM SAFARI HAMBURGER MENU
@@ -1454,10 +1265,283 @@
               }
             }
           });
-        });
-      }
-    }
-</script>
+        })
 
+</script>
+<script>
+  /* ============================================================
+     BEST SAFARI ADVENTURES
+     NETLIFY FORMS - UNIFIED SUBMISSION HANDLER
+     ============================================================ */
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    /* ========================================================
+       NETLIFY FORM SUBMISSION FUNCTION
+       ======================================================== */
+
+    async function submitToNetlify(form) {
+
+      const formName = form.getAttribute("name");
+
+      if (!formName) {
+        throw new Error("Netlify form name is missing.");
+      }
+
+      /* ----------------------------------------------------
+         Collect form data
+         ---------------------------------------------------- */
+
+      const formData = new FormData(form);
+
+      /* ----------------------------------------------------
+         IMPORTANT:
+         Tell Netlify exactly which form is being submitted
+         ---------------------------------------------------- */
+
+      formData.set("form-name", formName);
+
+      /* ----------------------------------------------------
+         Submit to Netlify
+         ---------------------------------------------------- */
+
+      const response = await fetch("/", {
+        method: "POST",
+
+        headers: {
+          "Content-Type":
+            "application/x-www-form-urlencoded"
+        },
+
+        body:
+          new URLSearchParams(formData).toString()
+      });
+
+      /* ----------------------------------------------------
+         Check response
+         ---------------------------------------------------- */
+
+      if (!response.ok) {
+
+        throw new Error(
+          "Netlify returned HTTP " +
+          response.status
+        );
+
+      }
+
+      return response;
+
+    }
+
+
+    /* ========================================================
+       QUICK BOOKING FORM
+       ======================================================== */
+
+    const quickBookingForm =
+      document.getElementById("quickBookingForm");
+
+    if (quickBookingForm) {
+
+      quickBookingForm.addEventListener(
+        "submit",
+        async function (event) {
+
+          event.preventDefault();
+
+          const form = event.currentTarget;
+
+          const button =
+            form.querySelector(
+              'button[type="submit"]'
+            );
+
+          const originalText =
+            button.innerHTML;
+
+          button.disabled = true;
+          button.innerHTML = "Sending...";
+
+          try {
+
+            await submitToNetlify(form);
+
+            console.log(
+              "quick-booking submitted successfully."
+            );
+
+            form.reset();
+
+            alert(
+              "Thank you! Your quick booking request has been received. We will contact you shortly."
+            );
+
+          } catch (error) {
+
+            console.error(
+              "quick-booking submission failed:",
+              error
+            );
+
+            alert(
+              "We could not submit your booking request. Please try again or contact us via WhatsApp."
+            );
+
+          } finally {
+
+            button.disabled = false;
+            button.innerHTML = originalText;
+
+          }
+
+        }
+      );
+
+      console.log(
+        "Netlify form ready: quick-booking"
+      );
+    }
+
+
+    /* ========================================================
+       CONTACT FORM
+       ======================================================== */
+
+    const contactForm =
+      document.getElementById("ctaForm");
+
+    if (contactForm) {
+
+      contactForm.addEventListener(
+        "submit",
+        async function (event) {
+
+          event.preventDefault();
+
+          const form = event.currentTarget;
+
+          const button =
+            form.querySelector(
+              'button[type="submit"]'
+            );
+
+          const originalText =
+            button.innerHTML;
+
+          button.disabled = true;
+          button.innerHTML = "Sending...";
+
+          try {
+
+            await submitToNetlify(form);
+
+            console.log(
+              "contact-form submitted successfully."
+            );
+
+            form.reset();
+
+            alert(
+              "Thank you! Your message has been received. We will contact you shortly."
+            );
+
+          } catch (error) {
+
+            console.error(
+              "contact-form submission failed:",
+              error
+            );
+
+            alert(
+              "We could not submit your message. Please try again or contact us via WhatsApp."
+            );
+
+          } finally {
+
+            button.disabled = false;
+            button.innerHTML = originalText;
+
+          }
+
+        }
+      );
+
+      console.log(
+        "Netlify form ready: contact-form"
+      );
+    }
+
+
+    /* ========================================================
+       CONTACT INQUIRY FORM
+       ======================================================== */
+
+    const contactInquiryForm =
+      document.getElementById("contactForm");
+
+    if (contactInquiryForm) {
+
+      contactInquiryForm.addEventListener(
+        "submit",
+        async function (event) {
+
+          event.preventDefault();
+
+          const form = event.currentTarget;
+
+          const button =
+            form.querySelector(
+              'button[type="submit"]'
+            );
+
+          const originalText =
+            button.innerHTML;
+
+          button.disabled = true;
+          button.innerHTML = "Sending...";
+
+          try {
+
+            await submitToNetlify(form);
+
+            console.log(
+              "contact-inquiry submitted successfully."
+            );
+
+            form.reset();
+
+            alert(
+              "Thank you! Your safari inquiry has been received successfully."
+            );
+
+          } catch (error) {
+
+            console.error(
+              "contact-inquiry submission failed:",
+              error
+            );
+
+            alert(
+              "We could not submit your safari inquiry. Please try again or contact us via WhatsApp."
+            );
+
+          } finally {
+
+            button.disabled = false;
+            button.innerHTML = originalText;
+
+          }
+
+        }
+      );
+
+      console.log(
+        "Netlify form ready: contact-inquiry"
+      );
+    }
+
+  });
+</script>
 </body>
 </html>

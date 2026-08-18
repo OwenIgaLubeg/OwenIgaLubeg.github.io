@@ -617,23 +617,25 @@
       class="booking-form-compact"
       name="quick-booking"
       method="POST"
+      action="/"
       data-netlify="true"
-      netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field"
     >
 
-      <!-- Netlify form identification -->
+      <!-- Netlify identification -->
       <input type="hidden" name="form-name" value="quick-booking">
 
-      <!-- Spam protection -->
-      <p class="hidden-field" style="display:none;">
+      <!-- Netlify spam protection -->
+      <div style="display:none;">
         <label>
-          Don't fill this out if you're human:
-          <input name="bot-field">
+          Don't fill this out:
+          <input name="bot-field" tabindex="-1" autocomplete="off">
         </label>
-      </p>
+      </div>
 
       <label>
         Destination
+
         <select name="destination" required>
           <option value="">Select...</option>
           <option value="Uganda">Uganda</option>
@@ -645,6 +647,7 @@
 
       <label>
         Travel Date
+
         <input
           type="date"
           name="travel-date"
@@ -654,6 +657,7 @@
 
       <label>
         Travelers
+
         <input
           type="number"
           name="travelers"
@@ -665,6 +669,7 @@
 
       <label>
         Contact Info
+
         <input
           type="text"
           name="contact-info"
@@ -951,23 +956,25 @@
       id="ctaForm"
       name="contact-form"
       method="POST"
+      action="/"
       data-netlify="true"
-      netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field"
     >
 
-      <!-- Netlify form identification -->
+      <!-- Netlify identification -->
       <input type="hidden" name="form-name" value="contact-form">
 
-      <!-- Spam protection -->
-      <p class="hidden-field" style="display:none;">
+      <!-- Netlify spam protection -->
+      <div style="display:none;">
         <label>
-          Don't fill this out if you're human:
-          <input name="bot-field">
+          Don't fill this out:
+          <input name="bot-field" tabindex="-1" autocomplete="off">
         </label>
-      </p>
+      </div>
 
       <label>
         Name <span class="req">*</span>
+
         <input
           type="text"
           name="name"
@@ -978,6 +985,7 @@
 
       <label>
         Email <span class="req">*</span>
+
         <input
           type="email"
           name="email"
@@ -988,6 +996,7 @@
 
       <label>
         Phone (WhatsApp) <span class="req">*</span>
+
         <input
           type="tel"
           name="phone"
@@ -998,6 +1007,7 @@
 
       <label>
         Country <span class="req">*</span>
+
         <input
           type="text"
           name="country"
@@ -1008,25 +1018,32 @@
 
       <label class="field-full">
         Safari Package of Interest
+
         <select name="safari-package" required>
           <option value="">Select a Package</option>
+
           <option value="Gorilla Trekking Safari">
             Gorilla Trekking Safari
           </option>
+
           <option value="Wildlife Safari">
             Wildlife Safari
           </option>
+
           <option value="Luxury Safari">
             Luxury Safari
           </option>
+
           <option value="Custom Itinerary">
             Custom Itinerary
           </option>
+
         </select>
       </label>
 
       <label class="field-full">
         Message <span class="req">*</span>
+
         <textarea
           name="message"
           required
@@ -1041,6 +1058,7 @@
     </span>
 
         <button type="submit">
+
           Send message
 
           <svg
@@ -1161,174 +1179,284 @@
 
 
   <script>
-    // ==========================================
-    // NETLIFY FORM SUBMISSION HANDLER
-    // ==========================================
+    <script>
+      // ==========================================================
+      // BEST SAFARI ADVENTURES
+      // NETLIFY FORMS SUBMISSION HANDLER
+      // ==========================================================
 
-    const handleNetlifySubmit = async (e) => {
-    e.preventDefault();
+      document.addEventListener("DOMContentLoaded", function () {
 
-    const form = e.target;
-    const formData = new FormData(form);
+      // ----------------------------------------------------------
+      // SUBMIT ANY NETLIFY FORM
+      // ----------------------------------------------------------
 
-    const submitBtn = form.querySelector('button[type="submit"]');
+      async function submitNetlifyForm(event) {
 
-    if (!submitBtn) return;
+        event.preventDefault();
 
-    const originalBtnText = submitBtn.innerHTML;
+        const form = event.target;
+        const submitButton = form.querySelector(
+          'button[type="submit"]'
+        );
 
-    submitBtn.innerHTML = 'Sending...';
-    submitBtn.disabled = true;
-
-    try {
-    const response = await fetch("/", {
-    method: "POST",
-    headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
-  },
-    body: new URLSearchParams(formData).toString()
-  });
-
-    if (!response.ok) {
-    throw new Error(
-    `Netlify returned HTTP ${response.status}`
-    );
-  }
-
-    alert(
-    "Thank you! Your request has been submitted successfully. We will contact you shortly."
-    );
-
-    form.reset();
-
-  } catch (error) {
-
-    console.error("Netlify form submission error:", error);
-
-    alert(
-    "Oops! There was a problem submitting your form. Please try again or contact us via WhatsApp."
-    );
-
-  } finally {
-
-    submitBtn.innerHTML = originalBtnText;
-    submitBtn.disabled = false;
-
-  }
-  };
-
-
-    // ==========================================
-    // QUICK BOOKING FORM
-    // ==========================================
-
-    const quickBookingForm =
-    document.getElementById("quickBookingForm");
-
-    if (quickBookingForm) {
-    quickBookingForm.addEventListener(
-      "submit",
-      handleNetlifySubmit
-    );
-  }
-
-
-    // ==========================================
-    // CONTACT FORM
-    // ==========================================
-
-    const ctaForm =
-    document.getElementById("ctaForm");
-
-    if (ctaForm) {
-    ctaForm.addEventListener(
-      "submit",
-      handleNetlifySubmit
-    );
-  }
-    
-  // ==========================================
-  // PREMIUM SAFARI HAMBURGER MENU
-  // ==========================================
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("safariMenuToggle");
-    const mobileMenu = document.getElementById("safariMobileMenu");
-    const menuOverlay = document.getElementById("safariMenuOverlay");
-    const menuClose = document.getElementById("safariMenuClose");
-    const menuLinks = document.querySelectorAll(".safari-menu-links a, .safari-menu-cta");
-
-    function openSafariMenu() {
-      mobileMenu.classList.add("active");
-      menuOverlay.classList.add("active");
-      menuToggle.classList.add("active");
-      menuToggle.setAttribute("aria-expanded", "true");
-      mobileMenu.setAttribute("aria-hidden", "false");
-      document.body.classList.add("safari-menu-open");
-    }
-
-    function closeSafariMenu() {
-      mobileMenu.classList.remove("active");
-      menuOverlay.classList.remove("active");
-      menuToggle.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
-      mobileMenu.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("safari-menu-open");
-    }
-
-    menuToggle.addEventListener("click", function () {
-      if (mobileMenu.classList.contains("active")) {
-        closeSafariMenu();
-      } else {
-        openSafariMenu();
-      }
-    });
-
-    menuClose.addEventListener("click", closeSafariMenu);
-    menuOverlay.addEventListener("click", closeSafariMenu);
-
-    menuLinks.forEach(function (link) {
-      link.addEventListener("click", function () {
-        closeSafariMenu();
-      });
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
-        closeSafariMenu();
-      }
-    });
-
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 991) {
-        closeSafariMenu();
-      }
-    });
-  });
-
-  // FAQ Accordion
-  document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-      const faqItem = question.parentElement;
-      const isActive = faqItem.classList.contains('active');
-      document.querySelectorAll('.faq-item').forEach(item => { item.classList.remove('active'); });
-      if (!isActive) { faqItem.classList.add('active'); }
-    });
-  });
-
-  // Smooth Scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href !== '#') {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          if(document.getElementById('mm')) document.getElementById('mm').classList.remove('open');
+        // Safety check
+        if (!submitButton) {
+          console.error("Submit button not found.");
+          return;
         }
+
+        // Get the Netlify form name
+        const formName = form.getAttribute("name");
+
+        if (!formName) {
+          console.error("Netlify form name is missing.");
+          return;
+        }
+
+        // --------------------------------------------------------
+        // Collect all form fields
+        // --------------------------------------------------------
+
+        const formData = new FormData(form);
+
+        // Make absolutely sure Netlify receives the correct form name
+        formData.set("form-name", formName);
+
+        // --------------------------------------------------------
+        // Save original button
+        // --------------------------------------------------------
+
+        const originalButtonHTML = submitButton.innerHTML;
+
+        // --------------------------------------------------------
+        // Loading state
+        // --------------------------------------------------------
+
+        submitButton.disabled = true;
+
+        if (formName === "quick-booking") {
+
+          submitButton.innerHTML = "Sending...";
+
+        } else {
+
+          submitButton.innerHTML = "Sending...";
+
+        }
+
+        try {
+
+          // ------------------------------------------------------
+          // Send submission to Netlify Forms
+          // ------------------------------------------------------
+
+          const response = await fetch("/", {
+            method: "POST",
+
+            headers: {
+              "Content-Type":
+                "application/x-www-form-urlencoded"
+            },
+
+            body: new URLSearchParams(formData).toString()
+          });
+
+          // ------------------------------------------------------
+          // Check Netlify response
+          // ------------------------------------------------------
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Netlify returned HTTP " + response.status
+            );
+
+          }
+
+          // ------------------------------------------------------
+          // SUCCESS
+          // ------------------------------------------------------
+
+          console.log(
+            "Netlify submission successful:",
+            formName
+          );
+
+          if (formName === "quick-booking") {
+
+            alert(
+              "Thank you! Your quick booking request has been received. We will contact you shortly."
+            );
+
+          } else if (formName === "contact-form") {
+
+            alert(
+              "Thank you! Your message has been received. We will contact you shortly."
+            );
+
+          }
+
+          // Clear form
+          form.reset();
+
+        } catch (error) {
+
+          // ------------------------------------------------------
+          // ERROR
+          // ------------------------------------------------------
+
+          console.error(
+            "Netlify form submission failed:",
+            error
+          );
+
+          alert(
+            "Oops! Something went wrong while sending your request. Please try again or contact us via WhatsApp."
+          );
+
+        } finally {
+
+          // ------------------------------------------------------
+          // Restore button
+          // ------------------------------------------------------
+
+          submitButton.innerHTML =
+            originalButtonHTML;
+
+          submitButton.disabled = false;
+
+        }
+
+        // ==========================================================
+        // QUICK BOOKING FORM
+        // ==========================================================
+
+        const quickBookingForm =
+          document.getElementById("quickBookingForm");
+
+        if (quickBookingForm) {
+
+          quickBookingForm.addEventListener(
+            "submit",
+            submitNetlifyForm
+          );
+
+          console.log(
+            "Netlify quick-booking form is ready."
+          );
+
+        }
+
+
+        // ==========================================================
+        // CONTACT FORM
+        // ==========================================================
+
+        const ctaForm =
+          document.getElementById("ctaForm");
+
+        if (ctaForm) {
+
+          ctaForm.addEventListener(
+            "submit",
+            submitNetlifyForm
+          );
+
+          console.log(
+            "Netlify contact-form is ready."
+          );
+
+        }
+
+        // ==========================================
+        // PREMIUM SAFARI HAMBURGER MENU
+        // ==========================================
+        document.addEventListener("DOMContentLoaded", function () {
+          const menuToggle = document.getElementById("safariMenuToggle");
+          const mobileMenu = document.getElementById("safariMobileMenu");
+          const menuOverlay = document.getElementById("safariMenuOverlay");
+          const menuClose = document.getElementById("safariMenuClose");
+          const menuLinks = document.querySelectorAll(".safari-menu-links a, .safari-menu-cta");
+
+          function openSafariMenu() {
+            mobileMenu.classList.add("active");
+            menuOverlay.classList.add("active");
+            menuToggle.classList.add("active");
+            menuToggle.setAttribute("aria-expanded", "true");
+            mobileMenu.setAttribute("aria-hidden", "false");
+            document.body.classList.add("safari-menu-open");
+          }
+
+          function closeSafariMenu() {
+            mobileMenu.classList.remove("active");
+            menuOverlay.classList.remove("active");
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+            mobileMenu.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("safari-menu-open");
+          }
+
+          menuToggle.addEventListener("click", function () {
+            if (mobileMenu.classList.contains("active")) {
+              closeSafariMenu();
+            } else {
+              openSafariMenu();
+            }
+          });
+
+          menuClose.addEventListener("click", closeSafariMenu);
+          menuOverlay.addEventListener("click", closeSafariMenu);
+
+          menuLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+              closeSafariMenu();
+            });
+          });
+
+          document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+              closeSafariMenu();
+            }
+          });
+
+          window.addEventListener("resize", function () {
+            if (window.innerWidth > 991) {
+              closeSafariMenu();
+            }
+          });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+          question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(item => {
+              item.classList.remove('active');
+            });
+            if (!isActive) {
+              faqItem.classList.add('active');
+            }
+          });
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+              e.preventDefault();
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({behavior: 'smooth', block: 'start'});
+                if (document.getElementById('mm')) document.getElementById('mm').classList.remove('open');
+              }
+            }
+          });
+        });
       }
-    });
-  });
+    }
 </script>
 
 </body>

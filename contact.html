@@ -1018,100 +1018,234 @@
       <div class="contact-form-container fade-in">
         <h3>Send Us a Message</h3>
         <p class="serif-text">Fill out the form below and our tourism consultants will get back to you with a customized safari quote.</p>
-        <form id="contactForm"
-              name="contact-inquiry"
-              method="POST"
-              data-netlify="true">
 
-          <input type="hidden" name="form-name" value="contact-inquiry">
+        <!-- ============================================================
+     CONTACT INQUIRY FORM
+     NETLIFY FORMS + WHATSAPP
+     ============================================================ -->
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fullName">Full Name *</label>
-              <input type="text"
-                     id="fullName"
-                     name="fullName"
-                     placeholder="John Doe"
-                     required>
-            </div>
+        <form
+          id="contactForm"
+          name="contact-inquiry"
+          method="POST"
+          action="/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
 
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email"
-                     id="email"
-                     name="email"
-                     placeholder="john@example.com"
-                     required>
-            </div>
+          <!-- Tell Netlify exactly which form this is -->
+          <input
+            type="hidden"
+            name="form-name"
+            value="contact-inquiry"
+          >
+
+          <!-- Netlify spam protection -->
+          <div style="display:none;">
+            <label>
+              Don't fill this out:
+              <input
+                type="text"
+                name="bot-field"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </label>
           </div>
 
+
+          <!-- ==========================================================
+               PERSONAL INFORMATION
+               ========================================================== -->
+
           <div class="form-row">
-            <div class="form-group">
-              <label for="phone">WhatsApp Number *</label>
-              <input type="tel"
-                     id="phone"
-                     name="phone"
-                     placeholder="+1 234 567 8900"
-                     required>
-            </div>
 
             <div class="form-group">
-              <label for="travelers">Number of Travelers</label>
-              <input type="number"
-                     id="travelers"
-                     name="travelers"
-                     placeholder="2"
-                     min="1">
+
+              <label for="fullName">
+                Full Name *
+              </label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="John Doe"
+                autocomplete="name"
+                required
+              >
+
             </div>
+
+
+            <div class="form-group">
+
+              <label for="email">
+                Email Address *
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
           </div>
 
+
+          <!-- ==========================================================
+               PHONE + TRAVELERS
+               ========================================================== -->
+
           <div class="form-row">
+
             <div class="form-group">
-              <label for="destination">Preferred Destination *</label>
 
-              <select id="destination"
-                      name="destination"
-                      required>
+              <label for="phone">
+                WhatsApp Number *
+              </label>
 
-                <option value="">Select Destination</option>
-                <option value="Uganda">Uganda</option>
-                <option value="Kenya">Kenya</option>
-                <option value="Tanzania">Tanzania</option>
-                <option value="Rwanda">Rwanda</option>
-                <option value="Multi-Country">Multi-Country Tour</option>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+256 700 000 000"
+                autocomplete="tel"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="travelers">
+                Number of Travelers
+              </label>
+
+              <input
+                type="number"
+                id="travelers"
+                name="travelers"
+                placeholder="2"
+                min="1"
+                value="2"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- ==========================================================
+               DESTINATION + TRAVEL DATE
+               ========================================================== -->
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label for="destination">
+                Preferred Destination *
+              </label>
+
+              <select
+                id="destination"
+                name="destination"
+                required
+              >
+
+                <option value="">
+                  Select Destination
+                </option>
+
+                <option value="Uganda">
+                  Uganda
+                </option>
+
+                <option value="Kenya">
+                  Kenya
+                </option>
+
+                <option value="Tanzania">
+                  Tanzania
+                </option>
+
+                <option value="Rwanda">
+                  Rwanda
+                </option>
+
+                <option value="Multi-Country">
+                  Multi-Country Tour
+                </option>
 
               </select>
+
             </div>
+
 
             <div class="form-group">
-              <label for="travelDate">Preferred Travel Date</label>
 
-              <input type="date"
-                     id="travelDate"
-                     name="travelDate">
+              <label for="travelDate">
+                Preferred Travel Date
+              </label>
+
+              <input
+                type="date"
+                id="travelDate"
+                name="travelDate"
+              >
+
             </div>
+
           </div>
 
+
+          <!-- ==========================================================
+               MESSAGE
+               ========================================================== -->
+
           <div class="form-row">
+
             <div class="form-group full-width">
 
               <label for="message">
                 Tell Us About Your Dream Safari *
               </label>
 
-              <textarea id="message"
-                        name="message"
-                        placeholder="Describe your interests, budget range, and any specific wildlife or cultural tourism experiences you wish to include..."
-                        required></textarea>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Describe your interests, budget range, group size, and any specific wildlife or cultural tourism experiences you wish to include..."
+                required
+              ></textarea>
 
             </div>
+
           </div>
 
-          <button type="submit" class="submit-btn">
+
+          <!-- ==========================================================
+               SUBMIT
+               ========================================================== -->
+
+          <button
+            type="submit"
+            class="submit-btn"
+            id="contactInquirySubmit"
+          >
+
             Send Inquiry via WhatsApp
+
           </button>
 
         </form>
+
       </div>
     </div>
   </div>
@@ -1219,155 +1353,277 @@
   });
 
 
-  // ============================================================
-  // CONTACT FORM SUBMISSION
-  // Netlify Forms + WhatsApp
-  // ============================================================
 
-  const contactForm = document.getElementById('contactForm');
+    /* ============================================================
+    CONTACT INQUIRY
+    NETLIFY FORMS + WHATSAPP
+    ============================================================ */
 
-  if (contactForm) {
+    document.addEventListener("DOMContentLoaded", function () {
 
-    contactForm.addEventListener('submit', async function(e) {
+    const contactForm =
+    document.getElementById("contactForm");
 
-      e.preventDefault();
+    if (!contactForm) {
+    console.warn(
+    "Contact inquiry form was not found."
+    );
 
-      const form = this;
-
-      // Get form values
-      const fullName = document.getElementById('fullName').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const travelers = document.getElementById('travelers').value || 'Not specified';
-      const destination = document.getElementById('destination').value;
-      const travelDate = document.getElementById('travelDate').value || 'Flexible';
-      const message = document.getElementById('message').value;
-
-
-      // ------------------------------------------------------------
-      // 1. SUBMIT FORM TO NETLIFY
-      // ------------------------------------------------------------
-
-      try {
-
-        const formData = new FormData(form);
-
-        await fetch('/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: new URLSearchParams(formData).toString()
-        });
-
-        console.log('Contact inquiry successfully submitted to Netlify.');
-
-      } catch (error) {
-
-        console.error('Netlify form submission failed:', error);
-
-      }
-
-
-      // ------------------------------------------------------------
-      // 2. CREATE WHATSAPP MESSAGE
-      // ------------------------------------------------------------
-
-      const whatsappMessage =
-        `*New Safari Tourism Inquiry*%0A%0A` +
-        `*Name:* ${fullName}%0A` +
-        `*Email:* ${email}%0A` +
-        `*Phone:* ${phone}%0A` +
-        `*Travelers:* ${travelers}%0A` +
-        `*Destination:* ${destination}%0A` +
-        `*Travel Date:* ${travelDate}%0A%0A` +
-        `*Message:* ${message}`;
-
-
-      // ------------------------------------------------------------
-      // 3. OPEN WHATSAPP
-      // ------------------------------------------------------------
-
-      window.open(
-        `https://wa.me/256757212707?text=${encodeURIComponent(whatsappMessage)}`,
-        '_blank'
-      );
-
-
-      // ------------------------------------------------------------
-      // 4. RESET FORM
-      // ------------------------------------------------------------
-
-      form.reset();
-
-
-      // ------------------------------------------------------------
-      // 5. SUCCESS MESSAGE
-      // ------------------------------------------------------------
-
-      alert(
-        'Thank you! Your inquiry has been received. Redirecting you to WhatsApp to complete your inquiry.'
-      );
-
-    });
+    return;
   }
 
 
-  // Smooth Scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    /* ==========================================================
+       FORM SUBMISSION
+       ========================================================== */
 
-    anchor.addEventListener('click', function(e) {
+    contactForm.addEventListener(
+    "submit",
+    async function (event) {
 
-      const href = this.getAttribute('href');
+    event.preventDefault();
 
-      if (href !== '#') {
 
-        e.preventDefault();
+    /* --------------------------------------------------------
+       Get submit button
+       -------------------------------------------------------- */
 
-        const target = document.querySelector(href);
+    const submitButton =
+    document.getElementById(
+    "contactInquirySubmit"
+    );
 
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
 
-      }
+    /* --------------------------------------------------------
+       Get form values
+       -------------------------------------------------------- */
 
-    });
+    const fullName =
+    document.getElementById(
+    "fullName"
+    ).value.trim();
+
+    const email =
+    document.getElementById(
+    "email"
+    ).value.trim();
+
+    const phone =
+    document.getElementById(
+    "phone"
+    ).value.trim();
+
+    const travelers =
+    document.getElementById(
+    "travelers"
+    ).value || "Not specified";
+
+    const destination =
+    document.getElementById(
+    "destination"
+    ).value;
+
+    const travelDate =
+    document.getElementById(
+    "travelDate"
+    ).value || "Flexible";
+
+    const message =
+    document.getElementById(
+    "message"
+    ).value.trim();
+
+
+    /* --------------------------------------------------------
+       Save original button text
+       -------------------------------------------------------- */
+
+    const originalButtonText =
+    submitButton.innerHTML;
+
+
+    /* --------------------------------------------------------
+       Loading state
+       -------------------------------------------------------- */
+
+    submitButton.disabled = true;
+
+    submitButton.innerHTML =
+    "Sending...";
+
+
+    try {
+
+    /* ======================================================
+       NETLIFY FORM DATA
+       ====================================================== */
+
+    const formData =
+    new FormData(contactForm);
+
+
+    /* ------------------------------------------------------
+       IMPORTANT:
+       Explicitly identify the Netlify form
+       ------------------------------------------------------ */
+
+    formData.set(
+    "form-name",
+    "contact-inquiry"
+    );
+
+
+    /* ======================================================
+       SUBMIT TO NETLIFY
+       ====================================================== */
+
+    const response =
+    await fetch(
+    "/",
+  {
+    method: "POST",
+
+    headers: {
+    "Content-Type":
+    "application/x-www-form-urlencoded"
+  },
+
+    body:
+    new URLSearchParams(
+    formData
+    ).toString()
+  }
+    );
+
+
+    /* ======================================================
+       CHECK NETLIFY RESPONSE
+       ====================================================== */
+
+    if (!response.ok) {
+
+    throw new Error(
+    "Netlify returned HTTP " +
+    response.status
+    );
+
+  }
+
+
+    /* ======================================================
+       NETLIFY SUCCESS
+       ====================================================== */
+
+    console.log(
+    "contact-inquiry successfully submitted to Netlify."
+    );
+
+
+    /* ======================================================
+       CREATE WHATSAPP MESSAGE
+       ====================================================== */
+
+    const whatsappText =
+    `New Safari Tourism Inquiry\n\n` +
+
+    `Name: ${fullName}\n` +
+
+    `Email: ${email}\n` +
+
+    `Phone: ${phone}\n` +
+
+    `Travelers: ${travelers}\n` +
+
+    `Destination: ${destination}\n` +
+
+    `Travel Date: ${travelDate}\n\n` +
+
+    `Message:\n${message}`;
+
+
+    /* ======================================================
+       OPEN WHATSAPP
+       ====================================================== */
+
+    const whatsappURL =
+    "https://wa.me/256757212707?text=" +
+    encodeURIComponent(
+    whatsappText
+    );
+
+
+    window.open(
+    whatsappURL,
+    "_blank"
+    );
+
+
+    /* ======================================================
+       RESET FORM
+       ====================================================== */
+
+    contactForm.reset();
+
+
+    /* ======================================================
+       SUCCESS MESSAGE
+       ====================================================== */
+
+    alert(
+    "Thank you! Your inquiry has been received successfully. We are now opening WhatsApp so you can continue the conversation with our safari team."
+    );
+
+
+  } catch (error) {
+
+    /* ======================================================
+       NETLIFY FAILURE
+       ====================================================== */
+
+    console.error(
+    "Netlify contact-inquiry submission failed:",
+    error
+    );
+
+
+    /* ------------------------------------------------------
+       IMPORTANT:
+       DO NOT open WhatsApp here.
+
+       If Netlify failed, we don't want to tell the
+       customer that the website successfully received
+       their email submission.
+       ------------------------------------------------------ */
+
+    alert(
+    "We could not submit your inquiry right now. Please try again or contact us directly on WhatsApp."
+    );
+
+
+  } finally {
+
+    /* ======================================================
+       RESTORE BUTTON
+       ====================================================== */
+
+    submitButton.disabled = false;
+
+    submitButton.innerHTML =
+    originalButtonText;
+
+  }
+
+  }
+    );
+
+
+    console.log(
+    "Netlify contact-inquiry form initialized successfully."
+    );
 
   });
 
 
-  // Fade In Animation on Scroll
-  const fadeElements = document.querySelectorAll('.fade-in');
-
-  const fadeInObserver = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-
-    });
-
-  }, {
-    threshold: 0.1
-  });
-
-
-  fadeElements.forEach(element => {
-    fadeInObserver.observe(element);
-  });
-
-
-  console.log(
-    '%c🦁 Best Safari Adventures East-Africa',
-    'color: #D4AF37; font-size: 24px; font-weight: bold;'
-  );
-</script>
   /* =====================================================
      PREMIUM SAFARI HAMBURGER MENU
   ====================================================== */

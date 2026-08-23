@@ -1,466 +1,506 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Premium Car Hire Services in East Africa. Luxury 4x4 safari vehicles, airport transfers, and chauffeur-driven tourism transport in Uganda, Kenya, Tanzania & Rwanda.">
-  <title>Car Hire Services | Luxury Safari Vehicles | Best Safari Adventures East-Africa</title>
+  <title>Car Hire Services | Best Safari Adventures East-Africa</title>
 
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
   <link href="img/favicon.png" rel="icon" type="image/png">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     :root {
-      --black: #0a0a0a;
-      --black-light: #1a1a1a;
-      --gold: #D4AF37;
-      --gold-light: #F4E8C1;
-      --gold-dark: #B8941F;
-      --forest-green: #1B4D3E;
-      --forest-green-light: #2D5F4F;
-      --mint: #98D8AA;
-      --mint-light: #C8E6C9;
-      --white: #FFFFFF;
-      --cream: #FAF9F6;
+      --color-safari-dark: #0E1B16;
+      --color-safari-darker: #08110E;
+      --color-safari-gold: #D4AF37;
+      --color-safari-gold-light: #F1D27A;
+      --color-safari-gold-dark: #B8941F;
+      --color-safari-orange: #C85A17;
+      --color-safari-mint: #98D8AA;
+      --color-safari-mint-dim: rgba(152, 216, 170, 0.12);
+      --color-parchment: #FAF9F6;
+      --color-white: #FFFFFF;
+
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Cinzel', serif;
+
+      --container-max: 1280px;
+      --container-pad: 24px;
+      --radius-md: 8px;
+      --radius-pill: 999px;
+      --radius-sm: 4px;
+
+      --dur-fast: 0.2s;
+      --dur-base: 0.3s;
+      --dur-slow: 0.5s;
+      --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* ENHANCED BOX SHADOWS */
+      --shadow-md: 0 10px 30px -5px rgba(0,0,0,0.15), 0 8px 12px -6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 25px 50px -12px rgba(0,0,0,0.25), 0 15px 25px -10px rgba(0,0,0,0.15);
+      --shadow-warm: 0 15px 40px rgba(212, 175, 55, 0.2);
+      --shadow-mint: 0 20px 40px rgba(152, 216, 170, 0.25);
+
+      --border-on-dark: rgba(212, 175, 55, 0.18);
+      --border-hairline: rgba(0,0,0,0.08);
+      --fg-1: #1a1a1a;
+      --fg-2: #555555;
+      --fg-3: #888888;
     }
 
-    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--color-parchment); color: var(--fg-1); line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; }
+    a { text-decoration: none; color: inherit; }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--black);
-      color: var(--white);
-      overflow-x: hidden;
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
+
+    /* ============ NAV ============ */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--color-safari-dark);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      border-bottom: 1px solid var(--border-on-dark);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .nav-inner { display: flex; align-items: center; gap: 36px; height: 84px; }
+    .logo { display: inline-flex; align-items: center; gap: 14px; font-family: var(--font-display); font-weight: 600; font-size: 20px; color: #fff; text-decoration: none; letter-spacing: -0.005em; }
+    .logo img { height: 50px; width: auto; display: block; flex: none; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+    .logo .logo-word { display: flex; flex-direction: column; line-height: 1; }
+    .logo .logo-word .lw-1 { font-family: var(--font-display); font-size: 20px; font-weight: 600; letter-spacing: 0.05em; color: var(--color-safari-gold-light); }
+    .logo .logo-word .lw-2 { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.25em; color: var(--color-safari-gold); text-transform: uppercase; margin-top: 4px; }
+
+    .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; margin-left: auto; }
+    .nav-links a { position: relative; color: rgba(255,255,255,0.78); padding: 6px 0; transition: color var(--dur-fast) var(--ease-standard); }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: var(--color-safari-gold); transition: width var(--dur-base) var(--ease-standard); }
+    .nav-links a:hover { color: var(--color-safari-gold-light); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: var(--color-safari-gold-light); }
+
+    .nav-cta { margin-left: 24px; }
+    .nav-toggle { display: none; background: transparent; border: 0; color: #fff; padding: 8px; margin-left: auto; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-body); font-weight: 500; font-size: 14px; padding: 13px 24px; border-radius: var(--radius-pill); border: 0; line-height: 1; text-decoration: none; transition: all var(--dur-base) var(--ease-standard); }
+    .btn-primary { background: var(--color-safari-gold); color: var(--color-safari-dark); }
+    .btn-primary:hover { background: var(--color-safari-gold-light); color: var(--color-safari-dark); box-shadow: var(--shadow-warm); }
+    .btn-primary.on-dark { box-shadow: var(--shadow-warm); }
+    .btn-secondary { background: transparent; border: 1.5px solid var(--color-safari-gold); color: var(--color-safari-gold); padding: 11.5px 22.5px; }
+    .btn-secondary:hover { background: var(--color-safari-gold); color: var(--color-safari-dark); }
+    .btn-secondary.on-dark { border-color: #fff; color: #fff; }
+    .btn-secondary.on-dark:hover { background: #fff; color: var(--color-safari-dark); }
+    .btn-lg { padding: 16px 30px; font-size: 15px; }
+
+    /* ============ CAR HERO SLIDESHOW ============ */
+    .car-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 84px;
+      overflow: hidden;
+    }
+    .car-slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .car-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .car-slide.active {
+      opacity: 1;
+    }
+    .car-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(14,27,22,0.85) 0%, rgba(27,77,62,0.7) 50%, rgba(14,27,22,0.85) 100%);
+      z-index: 1;
+    }
+    .car-hero-content { position: relative; z-index: 2; text-align: center; padding: 0 2rem; max-width: 800px; }
+    .car-hero-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      color: var(--color-safari-gold-light);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .car-hero-content p {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Cinzel', serif;
-      font-weight: 600;
-      letter-spacing: 2px;
-    }
-
-    .serif-text { font-family: 'Cormorant Garamond', serif; }
-
-    /* Preloader */
-    .preloader {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, var(--black) 0%, var(--forest-green) 100%);
-      display: flex; justify-content: center; align-items: center; z-index: 99999; transition: opacity 0.8s ease;
-    }
-    .preloader.hidden { opacity: 0; pointer-events: none; }
-    .preloader-content { text-align: center; }
-    .preloader-logo {
-      font-family: 'Cinzel', serif; font-size: 3.5rem; color: var(--gold); margin-bottom: 1.5rem;
-      animation: shimmer 2s infinite; text-shadow: 0 0 30px rgba(212,175,55,0.5);
-    }
-    @keyframes shimmer { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
-    .preloader-line {
-      width: 200px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto; animation: loading 1.5s infinite;
-    }
-    @keyframes loading { 0% { transform: scaleX(0); } 50% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
-
-    /* Navigation */
-    .navbar {
-      position: fixed; top: 0; width: 100%;
-      background: linear-gradient(180deg, rgba(10,10,10,0.98) 0%, rgba(27,77,62,0.9) 100%);
-      backdrop-filter: blur(20px); z-index: 1000; padding: 1rem 0;
-      transition: all 0.4s ease; border-bottom: 1px solid rgba(212,175,55,0.2);
-    }
-    .navbar.scrolled { padding: 0.8rem 0; background: rgba(10,10,10,0.98); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-    .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-    .nav-logo img { height: 50px; width: auto; transition: transform 0.3s ease; }
-    .nav-logo:hover img { transform: scale(1.05); }
-    .nav-logo-text {
-      font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold);
-      letter-spacing: 2px; transition: all 0.3s ease; text-shadow: 0 0 20px rgba(212,175,55,0.3);
-    }
-    .nav-logo:hover .nav-logo-text { text-shadow: 0 0 30px rgba(212,175,55,0.6); }
-    .nav-menu { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
-    .nav-menu a {
-      color: var(--white); text-decoration: none; font-weight: 400; font-size: 0.85rem;
-      text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; position: relative; padding: 0.5rem 0;
-    }
-    .nav-menu a::after {
-      content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
-      background: var(--gold); transition: width 0.4s ease;
-    }
-    .nav-menu a:hover, .nav-menu a.active { color: var(--gold); }
-    .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
-    .mobile-menu-toggle { display: none; background: none; border: none; color: var(--gold); font-size: 2rem; cursor: pointer; padding: 0.5rem; z-index: 1001; }
-
-    /* Page Hero Section with Video */
-    .car-hero {
-      position: relative; height: 85vh; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 0;
-      background: linear-gradient(135deg, var(--black) 0%, var(--forest-green) 100%);
-    }
-    .car-video-bg {
-      position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto;
-      transform: translate(-50%, -50%); object-fit: cover; opacity: 0.35; mix-blend-mode: overlay; z-index: 1;
-    }
-    .car-hero-overlay {
-      position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(27,77,62,0.7) 50%, rgba(10,10,10,0.85) 100%); z-index: 2;
-    }
-    .car-hero-content {
-      position: relative; z-index: 3; text-align: center; padding: 0 2rem; max-width: 900px;
-    }
-    .car-hero-content h1 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem); color: var(--gold); margin-bottom: 1.5rem;
-      text-shadow: 0 5px 20px rgba(0,0,0,0.5); line-height: 1.2;
-    }
-    .car-hero-content p { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--mint-light); font-style: italic; }
-
-    /* Quick Booking Widget */
-    .booking-widget-section {
-      background: var(--black);
-      padding: 0 2rem;
-      margin-top: -60px;
-      position: relative;
-      z-index: 10;
-    }
+    /* ============ BOOKING WIDGET ============ */
+    .booking-widget-section { background: var(--color-safari-dark); padding: 64px 0; }
     .booking-widget {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: rgba(27,77,62,0.4);
-      border: 1px solid rgba(212,175,55,0.3);
-      padding: 2.5rem;
-      border-radius: 5px;
+      max-width: 1200px; margin: 0 auto; background: rgba(27,77,62,0.4);
+      border: 1px solid rgba(212,175,55,0.3); padding: 2.5rem; border-radius: var(--radius-md);
       backdrop-filter: blur(10px);
     }
-    .booking-widget h3 {
-      color: var(--gold);
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
-    }
-    .widget-form {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      align-items: end;
-    }
+    .booking-widget h3 { color: var(--color-safari-gold); text-align: center; margin-bottom: 2rem; font-size: 1.8rem; font-family: var(--font-display); }
+    .widget-form { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; align-items: end; }
     .widget-form .form-group { display: flex; flex-direction: column; }
-    .widget-form label {
-      color: var(--mint);
-      font-size: 0.85rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .widget-form label { color: var(--color-safari-mint); font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
     .widget-form input, .widget-form select {
-      padding: 1rem;
-      background: rgba(10,10,10,0.8);
-      border: 1px solid rgba(212,175,55,0.2);
-      color: var(--white);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
+      padding: 1rem; background: rgba(10,10,10,0.8); border: 1px solid rgba(212,175,55,0.2);
+      color: var(--color-white); font-family: var(--font-body); font-size: 1rem; transition: all 0.3s ease; border-radius: var(--radius-sm);
     }
-    .widget-form input:focus, .widget-form select:focus {
-      outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 10px rgba(212,175,55,0.2);
-    }
+    .widget-form input:focus, .widget-form select:focus { outline: none; border-color: var(--color-safari-gold); }
     .widget-submit {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-      color: var(--black);
-      padding: 1rem;
-      border: none;
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: all 0.3s ease;
+      background: linear-gradient(135deg, var(--color-safari-gold) 0%, var(--color-safari-gold-dark) 100%);
+      color: var(--color-safari-dark); padding: 1rem; border: none; font-family: var(--font-mono);
+      font-weight: 700; font-size: 1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;
+      transition: all 0.3s ease; border-radius: var(--radius-sm);
     }
-    .widget-submit:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(212,175,55,0.4);
-    }
+    .widget-submit:hover { transform: translateY(-3px); box-shadow: var(--shadow-warm); }
 
-    /* Section Styles */
-    section { padding: 6rem 2rem; position: relative; }
-    .container { max-width: 1400px; margin: 0 auto; }
-    .section-header { text-align: center; margin-bottom: 4rem; }
-    .section-tag {
-      font-family: 'Cormorant Garamond', serif; color: var(--mint); font-size: 1.3rem;
-      font-weight: 400; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 1.5rem; display: block; font-style: italic;
-    }
-    .section-title {
-      font-family: 'Cinzel', serif; font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--gold); margin-bottom: 2rem; font-weight: 600; letter-spacing: 3px;
-    }
-    .section-subtitle {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--mint-light);
-      max-width: 800px; margin: 0 auto; font-weight: 300; font-style: italic;
-    }
+    /* ============ SECTION SHARED ============ */
+    section { padding: clamp(72px, 10vw, 100px) 0; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-tag { font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-safari-orange); display: inline-block; margin-bottom: 18px; }
+    .section-tag.on-dark { color: var(--color-safari-gold-light); }
+    h2.section-title { font-family: var(--font-display); font-size: clamp(34px, 4vw, 48px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600; margin: 0 0 16px; }
+    .section-subtitle { font-size: 18px; color: var(--fg-2); line-height: 1.6; margin: 0 auto; max-width: 640px; font-family: var(--font-display); font-style: italic; }
+    .on-dark .section-subtitle { color: rgba(255,255,255,0.75); }
 
-    /* Introduction Section */
-    .intro-section { background: var(--black); }
-    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .intro-content h2 { font-size: 2.5rem; color: var(--gold); margin-bottom: 2rem; line-height: 1.3; }
-    .intro-content p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--mint-light); line-height: 1.9; }
-    .intro-images { position: relative; height: 500px; }
-    .intro-img-main {
-      position: absolute; top: 0; left: 0; width: 75%; height: 75%; overflow: hidden;
-      border: 3px solid var(--gold); box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    /* ============ STORY / INTRO SECTION ============ */
+    .story-section { background: linear-gradient(180deg, var(--color-parchment) 0%, var(--color-safari-mint-dim) 100%); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .story-images { position: relative; height: 550px; }
+    .story-img-main {
+      position: absolute; top: 0; left: 0; width: 70%; height: 70%;
+      border-radius: var(--radius-md); overflow: hidden;
+      border: 3px solid var(--color-safari-gold);
+      box-shadow: var(--shadow-lg); z-index: 2;
     }
-    .intro-img-main img { width: 100%; height: 100%; object-fit: cover; }
-    .intro-img-secondary {
-      position: absolute; bottom: 0; right: 0; width: 60%; height: 50%; overflow: hidden;
-      border: 3px solid var(--mint); box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    .story-img-main img { width: 100%; height: 100%; object-fit: cover; }
+    .story-img-secondary {
+      position: absolute; bottom: 0; right: 0; width: 55%; height: 55%;
+      border-radius: var(--radius-md); overflow: hidden;
+      border: 3px solid var(--color-safari-mint);
+      box-shadow: var(--shadow-lg); z-index: 3;
     }
-    .intro-img-secondary img { width: 100%; height: 100%; object-fit: cover; }
+    .story-img-secondary img { width: 100%; height: 100%; object-fit: cover; }
+    .story-img-tertiary {
+      position: absolute; top: 50%; left: 55%; transform: translate(-50%, -50%);
+      width: 45%; height: 45%; border-radius: var(--radius-md); overflow: hidden;
+      border: 3px solid #fff; box-shadow: var(--shadow-lg); z-index: 4;
+    }
+    .story-img-tertiary img { width: 100%; height: 100%; object-fit: cover; }
+    .story-content h2 { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-safari-dark); margin-bottom: 2rem; line-height: 1.2; }
+    .story-content p { font-family: var(--font-display); font-size: 1.15rem; color: var(--fg-2); margin-bottom: 1.5rem; line-height: 1.8; font-style: italic; }
 
-    /* Fleet Section */
-    .fleet-section { background: linear-gradient(135deg, var(--forest-green) 0%, var(--black) 100%); }
-    .fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
-    .fleet-card {
-      background: rgba(10,10,10,0.6); border: 1px solid rgba(212,175,55,0.2);
-      overflow: hidden; transition: all 0.5s ease;
+    /* ============ CARDS (Fleet, Routes, Services, Features, Pricing) ============ */
+    .fleet-section, .routes-section, .services-section, .features-section, .pricing-section {
+      background: var(--color-safari-dark);
     }
-    .fleet-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 25px 60px rgba(212,175,55,0.15); }
-    .fleet-image { height: 240px; overflow: hidden; position: relative; }
+    .fleet-grid, .routes-grid, .services-grid, .features-grid, .pricing-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;
+    }
+    .fleet-card, .route-card, .service-card, .feature-card, .pricing-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-on-dark);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      text-align: center;
+      transition: all var(--dur-slow) var(--ease-standard);
+    }
+    .fleet-card:hover, .route-card:hover, .service-card:hover, .feature-card:hover, .pricing-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--color-safari-gold);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg), 0 0 30px rgba(212, 175, 55, 0.1);
+    }
+    .fleet-image { height: 200px; overflow: hidden; position: relative; margin: -2rem -2rem 1.5rem -2rem; }
     .fleet-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
     .fleet-card:hover .fleet-image img { transform: scale(1.1); }
     .fleet-badge {
-      position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--black);
-      padding: 0.4rem 1rem; font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;
+      position: absolute; top: 15px; right: 15px; background: var(--color-safari-gold); color: var(--color-safari-dark);
+      padding: 0.4rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;
     }
-    .fleet-content { padding: 2rem; }
-    .fleet-content h3 { color: var(--gold); font-size: 1.4rem; margin-bottom: 1rem; }
-    .fleet-content p { color: var(--mint-light); font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .fleet-card h3, .route-card h3, .service-card h3, .feature-card h3, .pricing-card h3 {
+      font-family: var(--font-display); font-size: 1.4rem; color: var(--color-safari-gold-light); margin-bottom: 1rem;
+    }
+    .fleet-card p, .route-card p, .service-card p, .feature-card p, .pricing-card p {
+      font-family: var(--font-display); font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; font-style: italic;
+    }
     .fleet-specs {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; padding: 1.5rem 0;
       border-top: 1px solid rgba(212,175,55,0.2); border-bottom: 1px solid rgba(212,175,55,0.2); margin-bottom: 1.5rem;
     }
-    .fleet-spec { display: flex; align-items: center; gap: 0.5rem; color: var(--mint-light); font-size: 0.9rem; }
-    .fleet-spec-icon { color: var(--gold); font-size: 1.1rem; }
-    .fleet-price { display: flex; justify-content: space-between; align-items: center; }
-    .fleet-price-amount { font-family: 'Cinzel', serif; color: var(--mint); font-size: 1.4rem; font-weight: 700; }
-    .fleet-price-amount span { font-size: 0.85rem; color: var(--mint-light); font-family: 'Montserrat', sans-serif; font-weight: 400; }
-    .btn-luxury {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: var(--black);
-      padding: 0.8rem 1.5rem; border: 2px solid var(--gold); border-radius: 0;
-      font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 600; cursor: pointer;
-      text-decoration: none; display: inline-block; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      text-transform: uppercase; letter-spacing: 2px; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(212,175,55,0.4);
-    }
-    .btn-luxury::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: left 0.7s ease;
-    }
-    .btn-luxury:hover::before { left: 100%; }
-    .btn-luxury:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(212,175,55,0.6); background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%); }
+    .fleet-spec { display: flex; align-items: center; gap: 0.5rem; color: var(--color-safari-mint); font-size: 0.9rem; }
+    .fleet-price { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .fleet-price-amount { font-family: var(--font-mono); color: var(--color-safari-mint); font-size: 1.4rem; font-weight: 700; }
+    .fleet-price-amount span { font-size: 0.85rem; color: var(--color-safari-mint); font-family: var(--font-body); font-weight: 400; }
+    .route-icon, .service-icon, .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .route-meta { color: var(--color-safari-mint); font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; }
+    .pricing-card .price { font-size: 2.5rem; color: var(--color-safari-mint); font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-mono); }
+    .pricing-card .price span { font-size: 1rem; color: rgba(255,255,255,0.7); }
+    .pricing-card ul { list-style: none; margin: 1.5rem 0; text-align: left; }
+    .pricing-card ul li { color: rgba(255,255,255,0.8); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; font-family: var(--font-display); font-size: 1rem; }
+    .pricing-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--color-safari-gold); font-weight: bold; }
 
-    /* Routes Section */
-    .routes-section { background: var(--black-light); }
-    .routes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-    .route-card {
-      background: rgba(10,10,10,0.6); border: 1px solid rgba(212,175,55,0.1);
-      padding: 2rem; text-align: center; transition: all 0.4s ease;
-    }
-    .route-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-    .route-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .route-card h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 0.8rem; }
-    .route-card p { color: var(--mint-light); font-family: 'Cormorant Garamond', serif; font-size: 1rem; margin-bottom: 1rem; }
-    .route-meta { color: var(--mint); font-size: 0.9rem; font-weight: 600; }
-
-    /* Services Section */
-    .services-section { background: var(--black); }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
-    .service-card {
-      background: rgba(27,77,62,0.2); padding: 2.5rem; border-left: 3px solid var(--gold);
-      transition: all 0.4s ease; text-align: center;
-    }
-    .service-card:hover { background: rgba(27,77,62,0.3); transform: translateY(-8px); }
-    .service-icon { font-size: 3rem; margin-bottom: 1.5rem; }
-    .service-card h3 { color: var(--gold); font-size: 1.3rem; margin-bottom: 1rem; }
-    .service-card p { color: var(--mint-light); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; line-height: 1.7; }
-
-    /* Features Section */
-    .features-section { background: linear-gradient(135deg, var(--forest-green) 0%, var(--black) 100%); }
-    .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-    .feature-card {
-      background: rgba(10,10,10,0.5); padding: 2rem 1.5rem; text-align: center;
-      border: 1px solid rgba(212,175,55,0.1); transition: all 0.4s ease;
-    }
-    .feature-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-    .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .feature-card h4 { color: var(--gold); font-size: 1.1rem; margin-bottom: 0.8rem; }
-    .feature-card p { color: var(--mint-light); font-family: 'Cormorant Garamond', serif; font-size: 1rem; line-height: 1.6; }
-
-    /* Pricing Section */
-    .pricing-section { background: var(--black-light); }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
-    .pricing-card {
-      background: rgba(10,10,10,0.6); border: 2px solid rgba(212,175,55,0.2);
-      padding: 3rem 2rem; text-align: center; transition: all 0.4s ease; position: relative;
-    }
-    .pricing-card.featured { border-color: var(--gold); transform: scale(1.05); }
-    .pricing-card.featured::before {
-      content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-      background: var(--gold); color: var(--black); padding: 0.5rem 2rem;
-      font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.9rem;
-    }
-    .pricing-card:hover { border-color: var(--gold); box-shadow: 0 20px 50px rgba(212,175,55,0.3); }
-    .pricing-card h3 { color: var(--gold); font-size: 1.8rem; margin-bottom: 1rem; }
-    .pricing-card .price { font-size: 3rem; color: var(--mint); font-weight: 700; margin-bottom: 0.5rem; font-family: 'Cinzel', serif; }
-    .pricing-card .price span { font-size: 1rem; color: var(--mint-light); font-family: 'Montserrat', sans-serif; }
-    .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; }
-    .pricing-card ul li { color: var(--mint-light); margin-bottom: 1rem; padding-left: 1.5rem; position: relative; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; }
-    .pricing-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-
-    /* FAQ Section */
-    .faq-section { background: var(--black); }
+    /* ============ FAQ SECTION ============ */
+    .faq-section { background: var(--color-safari-darker); }
     .faq-container { max-width: 900px; margin: 0 auto; }
-    .faq-item { background: rgba(27,77,62,0.2); border: 1px solid rgba(212,175,55,0.2); margin-bottom: 1.5rem; overflow: hidden; }
-    .faq-question { padding: 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
-    .faq-question:hover { background: rgba(212,175,55,0.05); }
-    .faq-question h3 { color: var(--gold); font-size: 1.2rem; font-weight: 600; }
-    .faq-icon { font-size: 1.8rem; color: var(--mint); transition: transform 0.3s ease; }
+    .faq-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-on-dark);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all var(--dur-base);
+    }
+    .faq-item:hover { border-color: var(--color-safari-gold); }
+    .faq-question { padding: 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background var(--dur-fast); }
+    .faq-question:hover { background: rgba(255,255,255,0.08); }
+    .faq-question h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--color-safari-gold-light); margin: 0; }
+    .faq-icon { font-size: 1.8rem; color: var(--color-safari-mint); transition: transform var(--dur-base); }
     .faq-item.active .faq-icon { transform: rotate(45deg); }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
-    .faq-answer-content { padding: 0 2rem 2rem; font-family: 'Cormorant Garamond', serif; color: var(--mint-light); font-size: 1.1rem; line-height: 1.8; }
+    .faq-answer-content { padding: 0 24px 24px; font-family: var(--font-display); color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.7; font-style: italic; }
     .faq-item.active .faq-answer { max-height: 400px; }
 
-    /* CTA Section */
-    .cta-section { background: linear-gradient(135deg, var(--forest-green) 0%, var(--black) 100%); padding: 6rem 2rem; text-align: center; }
-    .cta-content { max-width: 800px; margin: 0 auto; }
-    .cta-content h2 { font-size: 2.5rem; color: var(--gold); margin-bottom: 1.5rem; }
-    .cta-content p { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--mint-light); margin-bottom: 3rem; }
-
-    /* Partners Section */
-    .partners { background: var(--black-light); padding: 4rem 2rem; }
-    .partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; align-items: center; justify-items: center; }
+    /* ============ PARTNERS & CTA ============ */
+    .partners { background: var(--color-safari-darker); padding: 64px 0; border-top: 1px solid var(--border-on-dark); }
+    .partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: center; justify-items: center; }
     .partner-item {
-      background: rgba(212,175,55,0.05); padding: 2rem 1.5rem; border: 1px solid rgba(212,175,55,0.2);
-      text-align: center; min-height: 100px; display: flex; align-items: center; justify-content: center; width: 100%; transition: all 0.4s ease;
+      background: rgba(255,255,255,0.04);
+      padding: 24px 32px;
+      border: 1px solid var(--border-on-dark);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      transition: all var(--dur-base);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    .partner-item:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); }
-    .partner-item a { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    .partner-item:hover { background: rgba(255,255,255,0.08); border-color: var(--color-safari-gold); box-shadow: var(--shadow-warm); transform: translateY(-3px); }
+    .partner-item a { color: rgba(255,255,255,0.8); font-weight: 600; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .partner-item:hover a { color: var(--color-safari-gold-light); }
 
-    /* Footer */
-    footer.site-footer { background: var(--black); border-top: 1px solid rgba(212,175,55,0.2); padding: 5rem 2rem 2rem; }
-    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; margin-bottom: 4rem; }
-    .foot-brand .logo { margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-    .foot-brand .logo img { height: 50px; width: auto; }
-    .foot-brand .logo-word { display: flex; flex-direction: column; line-height: 1; }
-    .foot-brand .logo-word .lw-1 { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 600; letter-spacing: 0.05em; color: var(--gold); }
-    .foot-brand .logo-word .lw-2 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-top: 4px; }
-    .foot-tagline { color: var(--mint-light); line-height: 1.8; margin-bottom: 2rem; font-family: 'Cormorant Garamond', serif; font-style: italic; }
-    .foot-addr { font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.55); font-style: normal; margin-bottom: 1.5rem; }
-    .foot-addr a { color: var(--gold); text-decoration: none; }
-    .footer-column h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 1.5rem; }
-    .footer-column ul { list-style: none; }
-    .footer-column ul li { margin-bottom: 0.8rem; }
-    .footer-column ul li a { color: var(--mint-light); text-decoration: none; transition: all 0.3s ease; font-family: 'Cormorant Garamond', serif; }
-    .footer-column ul li a:hover { color: var(--gold); padding-left: 5px; }
-    .footer-contact p { color: var(--mint-light); margin-bottom: 0.8rem; font-family: 'Cormorant Garamond', serif; }
-    .footer-contact strong { color: var(--gold); }
-    .newsletter-form { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
-    .newsletter-form input { flex: 1; padding: 0.8rem; border: 1px solid rgba(212,175,55,0.3); background: rgba(255,255,255,0.05); color: var(--white); }
-    .newsletter-form button { padding: 0.8rem 1.5rem; background: var(--gold); color: var(--black); border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-    .newsletter-form button:hover { background: var(--gold-light); }
-    .footer-bottom { border-top: 1px solid rgba(212,175,55,0.2); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+    .cta-section {
+      background: linear-gradient(135deg, var(--color-safari-dark) 0%, rgba(27,77,62,0.9) 100%);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(152, 216, 170, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+    .cta-content h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); color: var(--color-safari-gold-light); margin-bottom: 1.5rem; }
+    .cta-content p { font-family: var(--font-display); font-size: 1.3rem; color: rgba(255,255,255,0.8); margin-bottom: 3rem; font-style: italic; line-height: 1.6; }
+
+    /* ============ FOOTER ============ */
+    footer.site-footer { background: var(--color-safari-darker); color: rgba(255,255,255,0.7); padding: 80px 0 28px; border-top: 1px solid var(--border-on-dark); }
+    .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .foot-brand .logo { margin-bottom: 18px; color: #fff; }
+    .foot-tagline { font-family: var(--font-display); font-style: italic; font-size: 18px; color: rgba(255,255,255,0.85); line-height: 1.4; margin: 0 0 22px; max-width: 280px; }
+    .foot-addr { font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.55); font-style: normal; }
+    .foot-addr a { color: var(--color-safari-gold); }
+    .foot-col h4 { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-safari-gold); margin: 0 0 18px; }
+    .foot-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .foot-col a { color: rgba(255,255,255,0.7); font-size: 14px; transition: color var(--dur-fast); }
+    .foot-col a:hover { color: var(--color-safari-gold-light); }
+    .foot-social { display: flex; gap: 12px; margin-top: 24px; }
+    .foot-social a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); transition: all var(--dur-base); }
+    .foot-social a:hover { border-color: var(--color-safari-gold); color: var(--color-safari-gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
 
     /* Floating Elements */
     .floating-whatsapp { position: fixed; right: 32px; bottom: 32px; z-index: 999; }
-    .whatsapp-btn {
-      width: 64px; height: 64px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 24px rgba(37,211,102,0.4); border: 3px solid #fff;
-    }
+    .whatsapp-btn { width: 64px; height: 64px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 24px rgba(37,211,102,0.4); border: 3px solid #fff; }
     .whatsapp-btn img { width: 36px; height: 36px; }
     .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.6); }
 
-    .floating-social { position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 998; display: flex; flex-direction: column; gap: 8px; background: var(--black); padding: 12px 8px; border-radius: 0 8px 8px 0; border: 1px solid rgba(212,175,55,0.2); border-left: none; box-shadow: 4px 0 20px rgba(0,0,0,0.3); }
-    .social-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.1rem; text-decoration: none; transition: all 0.3s; border-radius: 50%; }
-    .social-icon svg { width: 20px; height: 20px; }
-    .social-icon:hover { background: var(--gold); color: var(--black); transform: translateX(4px); }
-
-    /* Scroll to top */
-    .scroll-top {
-      position: fixed; bottom: 120px; right: 40px; width: 60px; height: 60px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark)); display: flex; align-items: center; justify-content: center;
-      color: var(--black); font-size: 1.8rem; cursor: pointer; opacity: 0; visibility: hidden;
-      transition: all 0.4s ease; z-index: 998; border: 2px solid var(--white);
-    }
-    .scroll-top.visible { opacity: 1; visibility: visible; }
-    .scroll-top:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(212,175,55,0.5); }
-
-    /* Responsive */
-    @media (max-width: 1200px) {
-      .fleet-grid, .services-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-      .features-grid, .routes-grid { grid-template-columns: repeat(2, 1fr); }
-      .partners-grid { grid-template-columns: repeat(2, 1fr); }
-      .widget-form { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 992px) {
-      .nav-menu {
-        position: fixed; top: 0; left: -100%; width: 100%; height: 100vh;
-        background: rgba(10,10,10,0.98); flex-direction: column; justify-content: center; padding: 0; gap: 3rem; transition: left 0.3s ease;
-      }
-      .nav-menu.active { left: 0; }
-      .nav-menu a { font-size: 1.5rem; }
-      .mobile-menu-toggle { display: block; }
-      .intro-grid { grid-template-columns: 1fr; }
-      .intro-images { order: -1; margin-bottom: 2rem; height: 400px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .pricing-card.featured { transform: scale(1); }
-      .floating-social { display: none; }
-    }
-    @media (max-width: 768px) {
-      .fleet-grid, .services-grid, .pricing-grid, .features-grid, .routes-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .widget-form { grid-template-columns: 1fr; }
-      .booking-widget { padding: 1.5rem; }
-      .nav-logo img { height: 40px; }
-      .nav-logo-text { font-size: 1.2rem; }
-    }
+    .floating-social { position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 998; display: flex; flex-direction: column; gap: 8px; background: var(--color-safari-dark); padding: 12px 8px; border-radius: 0 8px 8px 0; border: 1px solid var(--border-on-dark); border-left: none; box-shadow: 4px 0 20px rgba(0,0,0,0.3); }
+    .social-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: var(--color-safari-gold); font-size: 1.1rem; text-decoration: none; transition: all 0.3s; border-radius: 50%; }
+    .social-icon:hover { background: var(--color-safari-gold); color: var(--color-safari-dark); transform: translateX(4px); }
 
     /* Animations */
-    .fade-in { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s var(--ease-standard); }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* =====================================================
+       PREMIUM SAFARI HAMBURGER MENU
+    ====================================================== */
+    .safari-menu-toggle {
+      position: fixed; top: 20px; right: 20px; width: 52px; height: 52px; border: none; border-radius: 50%;
+      background: #0b3d2e; display: none; align-items: center; justify-content: center; flex-direction: column;
+      gap: 5px; cursor: pointer; z-index: 100001; box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .safari-menu-toggle:hover { transform: scale(1.08); background: #145c43; }
+    .safari-menu-toggle span { display: block; width: 23px; height: 2px; background: #ffffff; border-radius: 10px; transition: transform 0.35s ease, opacity 0.25s ease, width 0.35s ease; }
+    .safari-menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .safari-menu-toggle.active span:nth-child(2) { opacity: 0; width: 0; }
+    .safari-menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .safari-menu-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.60); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+      opacity: 0; visibility: hidden; z-index: 99998; transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .safari-menu-overlay.active { opacity: 1; visibility: visible; }
+
+    .safari-mobile-menu {
+      position: fixed; top: 0; right: 0; width: min(390px, 88%); height: 100vh; height: 100dvh;
+      background: linear-gradient(145deg, #073526, #0c4634 60%, #082c20); z-index: 100000;
+      transform: translateX(105%); transition: transform 0.45s cubic-bezier(.77,0,.18,1);
+      display: flex; flex-direction: column; overflow-y: auto; box-shadow: -15px 0 45px rgba(0,0,0,0.25);
+    }
+    .safari-mobile-menu.active { transform: translateX(0); }
+
+    .safari-menu-header { display: flex; align-items: center; justify-content: space-between; padding: 25px 25px 20px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .safari-menu-brand { display: flex; flex-direction: column; }
+    .safari-menu-brand span { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+    .safari-menu-brand small { color: #d4a853; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin-top: 3px; }
+
+    .safari-menu-close {
+      width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
+      color: #ffffff; border-radius: 50%; font-size: 30px; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+    }
+    .safari-menu-close:hover { transform: rotate(90deg); background: #d4a853; color: #082c20; }
+
+    .safari-menu-links { display: flex; flex-direction: column; padding: 15px 25px; flex: 1; }
+    .safari-menu-links a {
+      position: relative; display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 5px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.10); transition: color 0.3s ease, padding-left 0.3s ease;
+    }
+    .safari-menu-links a:hover { color: #d4a853; padding-left: 12px; }
+    .safari-menu-links a small { color: rgba(255,255,255,0.35); font-size: 11px; letter-spacing: 1px; }
+    .safari-menu-links .safari-menu-contact { color: #d4a853; }
+
+    .safari-menu-footer { padding: 25px; border-top: 1px solid rgba(255,255,255,0.12); }
+    .safari-menu-footer p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.6; margin-bottom: 18px; }
+    .safari-menu-cta {
+      display: flex; align-items: center; justify-content: center; width: 100%; padding: 14px 20px;
+      background: #d4a853; color: #102e22; text-decoration: none; border-radius: 30px; font-weight: 700;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .safari-menu-cta:hover { transform: translateY(-2px); background: #e6bd6a; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 991px) {
+      .safari-menu-toggle { display: flex; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: inline-flex; }
+      .story-grid { grid-template-columns: 1fr; gap: 48px; }
+      .story-images { height: 400px; margin-bottom: 24px; }
+      .story-img-main { width: 80%; height: 60%; }
+      .story-img-secondary { width: 60%; height: 45%; }
+      .story-img-tertiary { display: none; }
+      .widget-form { grid-template-columns: 1fr 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .floating-social { display: none; }
+    }
+    @media (max-width: 560px) {
+      .widget-form { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .foot-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .safari-menu-toggle { top: 14px; right: 14px; width: 48px; height: 48px; }
+      .safari-mobile-menu { width: 92%; }
+      .safari-menu-links a { font-size: 17px; padding: 16px 5px; }
+    }
+
+    .mobile-menu { display: none; background: var(--color-safari-darker); padding: 18px var(--container-pad) 24px; border-top: 1px solid var(--border-on-dark); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; color: rgba(255,255,255,0.85); padding: 12px 0; font-size: 15px; border-bottom: 1px solid var(--border-on-dark); }
+    .mobile-menu a.active { color: var(--color-safari-gold-light); }
+    .mobile-menu .btn { margin-top: 14px; width: 100%; }
   </style>
 </head>
 <body>
 
-<!-- Preloader -->
-<!--<div class="preloader" id="preloader">
-  <div class="preloader-content">
-    <div class="preloader-logo">BEST SAFARI ADVENTURES</div>
-    <div class="preloader-line"></div>
-  </div>
-</div>-->
-
-<!-- Navigation -->
-<nav class="navbar" id="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="nav-logo">
-      <img src="./img/company-logo.png" alt="Best Safari Adventures Logo">
-      <span class="nav-logo-text">BEST SAFARI ADVENTURES</span>
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Best Safari Adventures Home">
+      <img src="./img/company-logo.png" alt="Best Safari Adventures Logo" />
+      <span class="logo-word">
+        <span class="lw-1">BEST SAFARI</span>
+        <span class="lw-2">Adventures East-Africa</span>
+      </span>
     </a>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="safari-packages.html">Safari Packages</a></li>
-      <li><a href="car-hire-services.html" class="active">Car Hire</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="safari-packages.html">Safari Packages</a>
+      <a href="car-hire-services.html" class="active">Car Hire</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="btn btn-primary nav-cta">Request a Quote</a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="safari-packages.html">Safari Packages</a>
+    <a href="car-hire-services.html" class="active">Car Hire</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+  </div>
+</nav>
+
+<!-- =====================================================
+     PREMIUM SAFARI MOBILE HAMBURGER MENU
+====================================================== -->
+<button class="safari-menu-toggle" id="safariMenuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="safariMobileMenu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="safari-menu-overlay" id="safariMenuOverlay"></div>
+
+<nav class="safari-mobile-menu" id="safariMobileMenu" aria-hidden="true">
+  <div class="safari-menu-header">
+    <div class="safari-menu-brand">
+      <img src="./img/company-logo.png" alt="Best Safari Adventures Logo" />
+    </div>
+    <button class="safari-menu-close" id="safariMenuClose" aria-label="Close menu">×</button>
+  </div>
+  <div class="safari-menu-links">
+    <a href="index.html"><span>Home</span><small>01</small></a>
+    <a href="about.html"><span>About Us</span><small>02</small></a>
+    <a href="safari-packages.html"><span>Safari Packages</span><small>03</small></a>
+    <a href="car-hire-services.html" class="active"><span>Car Hire</span><small>04</small></a>
+    <a href="contact.html" class="safari-menu-contact"><span>Contact Us</span><small>05</small></a>
+  </div>
+  <div class="safari-menu-footer">
+    <p>Adventure . Learn . Love . Nature<br>Experience Unforgettable East-Africa Safaris.</p>
+    <a href="contact.html" class="safari-menu-cta">Plan Your Safari</a>
   </div>
 </nav>
 
@@ -477,26 +517,22 @@
   <a href="https://telegram.com/bestsafariadventureseastafrica" target="_blank" class="social-icon" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 11L10 13L12 20L21 3Z"/><path d="M10 13L21 3"/></svg></a>
 </div>
 
-<!-- Page Hero with Video -->
+<!-- ============ CAR HERO WITH SLIDESHOW ============ -->
 <section class="car-hero">
-  <!--<div class="intro-images fade-in">-->
-    <div class="intro-img-main">
-      <img src="./img/ter-land-cruiser-1.jpg" alt="Luxury Safari Vehicle East Africa">
-    </div>
-  <!--<video class="car-video-bg" autoplay muted loop playsinline>
-    <source src="./img/car-sevices-1.jpg" type="jpg">
-    Your browser does not support the video tag.
-  </video>-->
+  <div class="car-slideshow">
+    <div class="car-slide active" style="background-image: url('./img/tanzania-cheetahs-vehicle.jpg');"></div>
+    <div class="car-slide" style="background-image: url('./img/car-sevices-1.jpg');"></div>
+    <div class="car-slide" style="background-image: url('./img/sydney.jpg');"></div>
+  </div>
   <div class="car-hero-overlay"></div>
   <div class="car-hero-content fade-in">
     <h1>Premium Car Hire Services</h1>
     <p class="serif-text">Luxury 4x4 safari vehicles, airport transfers, and chauffeur-driven tourism transport across East Africa.</p>
   </div>
-  </div>
 </section>
 
-<!-- Quick Booking Widget -->
-<div class="booking-widget-section fade-in">
+<!-- ============ QUICK BOOKING WIDGET ============ -->
+<section class="booking-widget-section fade-in">
   <div class="booking-widget">
     <h3>Quick Car Hire Reservation</h3>
     <form class="widget-form" id="quickCarForm">
@@ -531,44 +567,47 @@
       <button type="submit" class="widget-submit">Check Availability</button>
     </form>
   </div>
-</div>
+</section>
 
-<!-- Introduction Section -->
-<section class="intro-section">
+<!-- ============ INTRODUCTION SECTION ============ -->
+<section class="story-section">
   <div class="container">
-    <div class="intro-grid">
-      <div class="intro-content fade-in">
-        <span class="section-tag">Luxury Transport Tourism</span>
-        <h2>Your Journey, Our Priority</h2>
-        <p class="serif-text">
-          Reliable, comfortable transportation is the backbone of any exceptional East African tourism experience. Whether you're embarking on a multi-day safari, need airport transfers, or prefer the freedom of self-drive exploration, our premium car hire services ensure you travel in style and safety.
-        </p>
-        <p class="serif-text">
-          Our fleet consists of meticulously maintained 4x4 vehicles specifically equipped for East African terrain. From the rugged trails of Murchison Falls to the scenic routes of the Rwenzori Mountains, our vehicles are designed to handle any adventure while keeping you comfortable.
-        </p>
-        <p class="serif-text">
-          With flexible rental options, competitive rates, and professional driver-guides available, we provide comprehensive transport solutions tailored to your tourism needs. Every vehicle comes with comprehensive insurance, GPS tracking, and 24/7 roadside assistance for your peace of mind.
-        </p>
-      </div>
-      <div class="intro-images fade-in">
-        <div class="intro-img-main">
+    <div class="story-grid">
+      <div class="story-images fade-in">
+        <div class="story-img-main">
           <img src="./img/ter-land-cruiser-1.jpg" alt="Luxury Safari Vehicle East Africa">
         </div>
-        <div class="intro-img-secondary">
+        <div class="story-img-tertiary">
+          <img src="./img/ter-rooftop-tent-land-cruiser.jpg" alt="Safari Camping">
+        </div>
+        <div class="story-img-secondary">
           <img src="./img/ter-kenya-safaris-1.jpg" alt="4x4 Safari Car Hire Uganda">
         </div>
+      </div>
+      <div class="story-content fade-in">
+        <span class="section-tag">Luxury Transport Tourism</span>
+        <h2>Your Journey, Our Priority</h2>
+        <p>
+          Reliable, comfortable transportation is the backbone of any exceptional East African tourism experience. Whether you're embarking on a multi-day safari, need airport transfers, or prefer the freedom of self-drive exploration, our premium car hire services ensure you travel in style and safety.
+        </p>
+        <p>
+          Our fleet consists of meticulously maintained 4x4 vehicles specifically equipped for East African terrain. From the rugged trails of Murchison Falls to the scenic routes of the Rwenzori Mountains, our vehicles are designed to handle any adventure while keeping you comfortable.
+        </p>
+        <p>
+          With flexible rental options, competitive rates, and professional driver-guides available, we provide comprehensive transport solutions tailored to your tourism needs. Every vehicle comes with comprehensive insurance, GPS tracking, and 24/7 roadside assistance for your peace of mind.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Fleet Section -->
+<!-- ============ FLEET SECTION ============ -->
 <section class="fleet-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Our Fleet</span>
+      <span class="section-tag on-dark">Our Fleet</span>
       <h2 class="section-title">Premium Safari Vehicles</h2>
-      <p class="section-subtitle serif-text">Choose from our carefully curated fleet of 4x4 vehicles, each equipped for the ultimate East African tourism adventure</p>
+      <p class="section-subtitle">Choose from our carefully curated fleet of 4x4 vehicles, each equipped for the ultimate East African tourism adventure</p>
     </div>
 
     <div class="fleet-grid">
@@ -579,16 +618,16 @@
         </div>
         <div class="fleet-content">
           <h3>4x4 Safari Land Cruiser</h3>
-          <p class="serif-text">The ultimate safari vehicle with pop-up roof for exceptional wildlife viewing. Perfect for game drives and photography tourism.</p>
+          <p>The ultimate safari vehicle with pop-up roof for exceptional wildlife viewing. Perfect for game drives and photography tourism.</p>
           <div class="fleet-specs">
-            <div class="fleet-spec"><span class="fleet-spec-icon">👥</span><span>6-7 Passengers</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🎯</span><span>Pop-up Roof</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🧳</span><span>Luggage Space</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">❄️</span><span>Air Conditioning</span></div>
+            <div class="fleet-spec"><span>👥</span><span>6-7 Passengers</span></div>
+            <div class="fleet-spec"><span>🎯</span><span>Pop-up Roof</span></div>
+            <div class="fleet-spec"><span>🧳</span><span>Luggage Space</span></div>
+            <div class="fleet-spec"><span>❄️</span><span>Air Conditioning</span></div>
           </div>
           <div class="fleet-price">
             <div class="fleet-price-amount">$70 <span>/ day</span></div>
-            <a href="contact.html" class="btn-luxury">Book Now</a>
+            <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Book Now</a>
           </div>
         </div>
       </div>
@@ -600,16 +639,16 @@
         </div>
         <div class="fleet-content">
           <h3>Toyota Land Cruiser V8</h3>
-          <p class="serif-text">Premium luxury SUV with powerful V8 engine. Ideal for long-distance tourism travel and VIP transport across East Africa.</p>
+          <p>Premium luxury SUV with powerful V8 engine. Ideal for long-distance tourism travel and VIP transport across East Africa.</p>
           <div class="fleet-specs">
-            <div class="fleet-spec"><span class="fleet-spec-icon">👥</span><span>7 Passengers</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">⚡</span><span>V8 Engine</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">️</span><span>Leather Interior</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🎵</span><span>Premium Sound</span></div>
+            <div class="fleet-spec"><span>👥</span><span>7 Passengers</span></div>
+            <div class="fleet-spec"><span>⚡</span><span>V8 Engine</span></div>
+            <div class="fleet-spec"><span>🛋️</span><span>Leather Interior</span></div>
+            <div class="fleet-spec"><span>🎵</span><span>Premium Sound</span></div>
           </div>
           <div class="fleet-price">
             <div class="fleet-price-amount">$70 <span>/ day</span></div>
-            <a href="contact.html" class="btn-luxury">Book Now</a>
+            <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Book Now</a>
           </div>
         </div>
       </div>
@@ -621,16 +660,16 @@
         </div>
         <div class="fleet-content">
           <h3>Toyota Land Cruiser Prado</h3>
-          <p class="serif-text">Versatile and reliable 4x4 perfect for both city tourism and off-road adventures. Excellent fuel efficiency and comfort.</p>
+          <p>Versatile and reliable 4x4 perfect for both city tourism and off-road adventures. Excellent fuel efficiency and comfort.</p>
           <div class="fleet-specs">
-            <div class="fleet-spec"><span class="fleet-spec-icon">👥</span><span>5-6 Passengers</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">⛽</span><span>Fuel Efficient</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">️</span><span>4WD Capability</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon"></span><span>GPS Navigation</span></div>
+            <div class="fleet-spec"><span>👥</span><span>5-6 Passengers</span></div>
+            <div class="fleet-spec"><span>⛽</span><span>Fuel Efficient</span></div>
+            <div class="fleet-spec"><span>🚙</span><span>4WD Capability</span></div>
+            <div class="fleet-spec"><span>📍</span><span>GPS Navigation</span></div>
           </div>
           <div class="fleet-price">
             <div class="fleet-price-amount">$70 <span>/ day</span></div>
-            <a href="contact.html" class="btn-luxury">Book Now</a>
+            <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Book Now</a>
           </div>
         </div>
       </div>
@@ -642,16 +681,16 @@
         </div>
         <div class="fleet-content">
           <h3>Custom Safari Van (4x4)</h3>
-          <p class="serif-text">Spacious custom-built safari van with guaranteed window seats for all passengers. Ideal for group tourism and family safaris.</p>
+          <p>Spacious custom-built safari van with guaranteed window seats for all passengers. Ideal for group tourism and family safaris.</p>
           <div class="fleet-specs">
-            <div class="fleet-spec"><span class="fleet-spec-icon">👥</span><span>7-9 Passengers</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🪟</span><span>Pop-up Windows</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🔌</span><span>Charging Ports</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon"></span><span>Photo-Friendly</span></div>
+            <div class="fleet-spec"><span>👥</span><span>7-9 Passengers</span></div>
+            <div class="fleet-spec"><span>🪟</span><span>Pop-up Windows</span></div>
+            <div class="fleet-spec"><span>🔌</span><span>Charging Ports</span></div>
+            <div class="fleet-spec"><span>📸</span><span>Photo-Friendly</span></div>
           </div>
           <div class="fleet-price">
             <div class="fleet-price-amount">$50 <span>/ day</span></div>
-            <a href="contact.html" class="btn-luxury">Book Now</a>
+            <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Book Now</a>
           </div>
         </div>
       </div>
@@ -663,16 +702,16 @@
         </div>
         <div class="fleet-content">
           <h3>Toyota ROOF-TENT SUV</h3>
-          <p class="serif-text">Compact and fuel-efficient SUV perfect for city tours, airport transfers, and light tourism excursions. Great value for money.</p>
+          <p>Compact and fuel-efficient SUV perfect for city tours, airport transfers, and light tourism excursions. Great value for money.</p>
           <div class="fleet-specs">
-            <div class="fleet-spec"><span class="fleet-spec-icon">👥</span><span>5-7 Passengers</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">⛽</span><span>Very Efficient</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🏙️</span><span>Wild-Friendly</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">💰</span><span>Budget Option</span></div>
+            <div class="fleet-spec"><span>👥</span><span>5-7 Passengers</span></div>
+            <div class="fleet-spec"><span>⛽</span><span>Very Efficient</span></div>
+            <div class="fleet-spec"><span>🏙️</span><span>City-Friendly</span></div>
+            <div class="fleet-spec"><span>💰</span><span>Budget Option</span></div>
           </div>
           <div class="fleet-price">
             <div class="fleet-price-amount">$130 <span>/ day</span></div>
-            <a href="contact.html" class="btn-luxury">Book Now</a>
+            <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Book Now</a>
           </div>
         </div>
       </div>
@@ -684,16 +723,16 @@
         </div>
         <div class="fleet-content">
           <h3>4WD Safari Minibus</h3>
-          <p class="serif-text">Large capacity minibus for group tourism, corporate events, and family reunions. Comfortable seating with ample storage.</p>
+          <p>Large capacity minibus for group tourism, corporate events, and family reunions. Comfortable seating with ample storage.</p>
           <div class="fleet-specs">
-            <div class="fleet-spec"><span class="fleet-spec-icon">👥</span><span>12-15 Passengers</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🧳</span><span>Large Storage</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🎤</span><span>PA System</span></div>
-            <div class="fleet-spec"><span class="fleet-spec-icon">🛡️</span><span>Safety Features</span></div>
+            <div class="fleet-spec"><span>👥</span><span>12-15 Passengers</span></div>
+            <div class="fleet-spec"><span>🧳</span><span>Large Storage</span></div>
+            <div class="fleet-spec"><span>🎤</span><span>PA System</span></div>
+            <div class="fleet-spec"><span>🛡️</span><span>Safety Features</span></div>
           </div>
           <div class="fleet-price">
             <div class="fleet-price-amount">$100 <span>/ day</span></div>
-            <a href="contact.html" class="btn-luxury">Book Now</a>
+            <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Book Now</a>
           </div>
         </div>
       </div>
@@ -701,117 +740,117 @@
   </div>
 </section>
 
-<!-- Popular Routes Section -->
+<!-- ============ POPULAR ROUTES SECTION ============ -->
 <section class="routes-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Inspiration</span>
+      <span class="section-tag on-dark">Inspiration</span>
       <h2 class="section-title">Popular Tourism Routes</h2>
-      <p class="section-subtitle serif-text">Discover the most requested driving itineraries for your East African adventure</p>
+      <p class="section-subtitle">Discover the most requested driving itineraries for your East African adventure</p>
     </div>
 
     <div class="routes-grid">
       <div class="route-card fade-in">
         <div class="route-icon">✈️</div>
-        <h4>Entebbe to Kampala</h4>
-        <p class="serif-text">Seamless airport transfer to the city center or your hotel.</p>
+        <h3>Entebbe to Kampala</h3>
+        <p>Seamless airport transfer to the city center or your hotel.</p>
         <div class="route-meta">45 Mins • $40</div>
       </div>
       <div class="route-card fade-in">
         <div class="route-icon">🌊</div>
-        <h4>Kampala to Jinja</h4>
-        <p class="serif-text">Explore the source of the Nile and adventure sports hub.</p>
+        <h3>Kampala to Jinja</h3>
+        <p>Explore the source of the Nile and adventure sports hub.</p>
         <div class="route-meta">2 Hours • $120</div>
       </div>
       <div class="route-card fade-in">
         <div class="route-icon">🦁</div>
-        <h4>Kampala to Murchison</h4>
-        <p class="serif-text">Journey to Uganda's largest national park for Big Five tourism.</p>
+        <h3>Kampala to Murchison</h3>
+        <p>Journey to Uganda's largest national park for Big Five tourism.</p>
         <div class="route-meta">5 Hours • $250</div>
       </div>
       <div class="route-card fade-in">
         <div class="route-icon">🦍</div>
-        <h4>Kampala to Bwindi</h4>
-        <p class="serif-text">Scenic drive to the impenetrable forest for gorilla trekking.</p>
+        <h3>Kampala to Bwindi</h3>
+        <p>Scenic drive to the impenetrable forest for gorilla trekking.</p>
         <div class="route-meta">9 Hours • $400</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
+<!-- ============ SERVICES SECTION ============ -->
 <section class="services-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Our Services</span>
+      <span class="section-tag on-dark">Our Services</span>
       <h2 class="section-title">Comprehensive Car Hire Solutions</h2>
-      <p class="section-subtitle serif-text">Flexible transport options designed to meet every tourism need</p>
+      <p class="section-subtitle">Flexible transport options designed to meet every tourism need</p>
     </div>
 
     <div class="services-grid">
       <div class="service-card fade-in">
         <div class="service-icon">🚗</div>
         <h3>Self-Drive Car Hire</h3>
-        <p class="serif-text">Enjoy the freedom to explore East Africa at your own pace. All vehicles come with comprehensive insurance and GPS navigation.</p>
+        <p>Enjoy the freedom to explore East Africa at your own pace. All vehicles come with comprehensive insurance and GPS navigation.</p>
       </div>
       <div class="service-card fade-in">
         <div class="service-icon">👨‍✈️</div>
         <h3>Chauffeur-Driven Safaris</h3>
-        <p class="serif-text">Sit back and relax while our professional driver-guides navigate the roads. Expert knowledge of routes and tourism sites included.</p>
+        <p>Sit back and relax while our professional driver-guides navigate the roads. Expert knowledge of routes and tourism sites included.</p>
       </div>
       <div class="service-card fade-in">
         <div class="service-icon">✈️</div>
         <h3>Airport Transfers</h3>
-        <p class="serif-text">Seamless pickup and drop-off at Entebbe International Airport and all regional airports. Professional meet-and-greet service.</p>
+        <p>Seamless pickup and drop-off at Entebbe International Airport and all regional airports. Professional meet-and-greet service.</p>
       </div>
       <div class="service-card fade-in">
         <div class="service-icon">📅</div>
         <h3>Long-Term Rentals</h3>
-        <p class="serif-text">Special rates for weekly and monthly rentals. Perfect for extended tourism stays, business assignments, or research projects.</p>
+        <p>Special rates for weekly and monthly rentals. Perfect for extended tourism stays, business assignments, or research projects.</p>
       </div>
       <div class="service-card fade-in">
         <div class="service-icon">🎉</div>
         <h3>Special Event Transport</h3>
-        <p class="serif-text">Luxury vehicles for weddings, conferences, corporate events, and VIP tourism experiences. Customized to your requirements.</p>
+        <p>Luxury vehicles for weddings, conferences, corporate events, and VIP tourism experiences. Customized to your requirements.</p>
       </div>
       <div class="service-card fade-in">
         <div class="service-icon">🗺️</div>
         <h3>Custom Safari Tours</h3>
-        <p class="serif-text">Vehicle plus expert guide for complete safari packages. We handle all logistics while you enjoy the tourism experience.</p>
+        <p>Vehicle plus expert guide for complete safari packages. We handle all logistics while you enjoy the tourism experience.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Features Section -->
+<!-- ============ FEATURES SECTION ============ -->
 <section class="features-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Why Choose Us</span>
+      <span class="section-tag on-dark">Why Choose Us</span>
       <h2 class="section-title">The Best Safari Advantage</h2>
-      <p class="section-subtitle serif-text">What sets our car hire tourism services apart from the competition</p>
+      <p class="section-subtitle">What sets our car hire tourism services apart from the competition</p>
     </div>
 
     <div class="features-grid">
-      <div class="feature-card fade-in"><div class="feature-icon">🔧</div><h4>Well-Maintained Fleet</h4><p class="serif-text">All vehicles undergo rigorous maintenance checks before every rental.</p></div>
-      <div class="feature-card fade-in"><div class="feature-icon">‍🏫</div><h4>Experienced Driver-Guides</h4><p class="serif-text">Professional drivers with extensive knowledge of East African tourism routes.</p></div>
-      <div class="feature-card fade-in"><div class="feature-icon">🛡️</div><h4>Comprehensive Insurance</h4><p class="serif-text">Full coverage insurance included with every rental for complete peace of mind.</p></div>
-      <div class="feature-card fade-in"><div class="feature-icon">📍</div><h4>GPS Tracking</h4><p class="serif-text">Advanced GPS navigation and vehicle tracking for safety and convenience.</p></div>
-      <div class="feature-card fade-in"><div class="feature-icon">🆘</div><h4>24/7 Roadside Assistance</h4><p class="serif-text">Round-the-clock support wherever you are in East Africa.</p></div>
-      <div class="feature-card fade-in"><div class="feature-icon">💰</div><h4>Competitive Rates</h4><p class="serif-text">Transparent pricing with no hidden fees. Best value for tourism transport.</p></div>
-      <div class="feature-card fade-in"><div class="feature-icon">⛽</div><h4>Fuel Policy Options</h4><p class="serif-text">Flexible fuel policies to suit your tourism itinerary and budget.</p></div>
-      <div class="feature-card fade-in"><div class="feature-icon">📱</div><h4>Easy Booking</h4><p class="serif-text">Simple online reservation system with instant confirmation via WhatsApp.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">🔧</div><h4>Well-Maintained Fleet</h4><p>All vehicles undergo rigorous maintenance checks before every rental.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">🏫</div><h4>Experienced Driver-Guides</h4><p>Professional drivers with extensive knowledge of East African tourism routes.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">🛡️</div><h4>Comprehensive Insurance</h4><p>Full coverage insurance included with every rental for complete peace of mind.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">📍</div><h4>GPS Tracking</h4><p>Advanced GPS navigation and vehicle tracking for safety and convenience.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">🆘</div><h4>24/7 Roadside Assistance</h4><p>Round-the-clock support wherever you are in East Africa.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">💰</div><h4>Competitive Rates</h4><p>Transparent pricing with no hidden fees. Best value for tourism transport.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">⛽</div><h4>Fuel Policy Options</h4><p>Flexible fuel policies to suit your tourism itinerary and budget.</p></div>
+      <div class="feature-card fade-in"><div class="feature-icon">📱</div><h4>Easy Booking</h4><p>Simple online reservation system with instant confirmation via WhatsApp.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Pricing Section -->
+<!-- ============ PRICING SECTION ============ -->
 <section class="pricing-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Rental Packages</span>
+      <span class="section-tag on-dark">Rental Packages</span>
       <h2 class="section-title">Flexible Car Hire Packages</h2>
-      <p class="section-subtitle serif-text">Choose the rental option that best fits your tourism needs and budget</p>
+      <p class="section-subtitle">Choose the rental option that best fits your tourism needs and budget</p>
     </div>
 
     <div class="pricing-grid">
@@ -826,10 +865,10 @@
           <li>24/7 roadside assistance</li>
           <li>Perfect for: Independent explorers</li>
         </ul>
-        <a href="contact.html" class="btn-luxury" style="padding: 1rem 2.5rem; font-size: 0.9rem;">Book Now</a>
+        <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 1rem 2.5rem; font-size: 0.9rem;">Book Now</a>
       </div>
 
-      <div class="pricing-card featured fade-in">
+      <div class="pricing-card fade-in" style="border-color: var(--color-safari-gold); transform: scale(1.05);">
         <h3>With Driver-Guide</h3>
         <div class="price">$80 <span>per day</span></div>
         <ul>
@@ -840,7 +879,7 @@
           <li>Full insurance coverage</li>
           <li>Perfect for: Stress-free tourism</li>
         </ul>
-        <a href="contact.html" class="btn-luxury" style="padding: 1rem 2.5rem; font-size: 0.9rem;">Book Now</a>
+        <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 1rem 2.5rem; font-size: 0.9rem;">Book Now</a>
       </div>
 
       <div class="pricing-card fade-in">
@@ -854,19 +893,19 @@
           <li>Priority support</li>
           <li>Perfect for: Extended tourism</li>
         </ul>
-        <a href="contact.html" class="btn-luxury" style="padding: 1rem 2.5rem; font-size: 0.9rem;">Book Now</a>
+        <a href="contact.html" class="btn btn-primary btn-lg on-dark" style="padding: 1rem 2.5rem; font-size: 0.9rem;">Book Now</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ Section -->
+<!-- ============ FAQ SECTION ============ -->
 <section class="faq-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">FAQ</span>
+      <span class="section-tag on-dark">FAQ</span>
       <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-subtitle serif-text">Everything you need to know about our car hire tourism services</p>
+      <p class="section-subtitle">Everything you need to know about our car hire tourism services</p>
     </div>
 
     <div class="faq-container">
@@ -898,32 +937,32 @@
   </div>
 </section>
 
-<!-- CTA Section -->
+<!-- ============ CTA SECTION ============ -->
 <section class="cta-section">
   <div class="cta-content fade-in">
     <h2>Ready to Hit the Road?</h2>
-    <p class="serif-text">Book your premium vehicle today and experience East Africa's tourism destinations in comfort and style. Our team is ready to help you plan the perfect transport solution for your adventure.</p>
-    <a href="contact.html" class="btn-luxury" style="padding: 1.3rem 3.5rem; font-size: 0.95rem;">Request a Car Hire Quote</a>
+    <p>Book your premium vehicle today and experience East Africa's tourism destinations in comfort and style. Our team is ready to help you plan the perfect transport solution for your adventure.</p>
+    <a href="contact.html" class="btn btn-primary btn-lg on-dark">Request a Car Hire Quote</a>
   </div>
 </section>
 
-<!-- Partners Section -->
+<!-- ============ PARTNERS SECTION ============ -->
 <section class="partners">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Accreditations</span>
+      <span class="section-tag on-dark">Accreditations</span>
       <h2 class="section-title">Our Trusted Tourism Partners</h2>
     </div>
     <div class="partners-grid fade-in">
       <div class="partner-item"><a href="https://utb.go.ug/" target="_blank">Uganda Tourism Board</a></div>
       <div class="partner-item"><a href="https://www.ugandawildlife.org/" target="_blank">Uganda Wildlife Authority</a></div>
       <div class="partner-item"><a href="https://www.safaribookings.com/" target="_blank">SafariBookings</a></div>
-      <div class="partner-item"><a href="https://www.tripadvisor.com/" target="_blank">TripAdvisor</a></div>
+      <div class="partner-item"><a href="https://www.tripadvisor.com/Profile/BESTsafariAdventures?tab=photos" target="_blank">TripAdvisor</a></div>
     </div>
   </div>
 </section>
 
-<<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="container">
     <div class="foot-grid">
@@ -976,11 +1015,11 @@
       <div class="foot-col">
         <h4>Destinations</h4>
         <ul>
-          <li><a href="#index.html">Uganda</a></li>
-          <li><a href="#index.html">Kenya</a></li>
-          <li><a href="#index.html">Tanzania</a></li>
-          <li><a href="#index.html">Rwanda</a></li>
-          <li><a href="#index.html">Multi-Country Tours</a></li>
+          <li><a href="index.html">Uganda</a></li>
+          <li><a href="index.html">Kenya</a></li>
+          <li><a href="index.html">Tanzania</a></li>
+          <li><a href="index.html">Rwanda</a></li>
+          <li><a href="safari-packages.html">Multi-Country Tours</a></li>
         </ul>
       </div>
     </div>
@@ -990,81 +1029,39 @@
   </div>
 </footer>
 
-<!-- Floating WhatsApp -->
+<!-- Floating WhatsApp (Right Bottom) -->
 <div class="floating-whatsapp">
   <a href="https://wa.me/256757212707" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
 </div>
 
-<!-- Scroll to Top -->
-<div class="scroll-top" id="scrollTop">↑</div>
-
 <script>
-  // Preloader
-  window.addEventListener('load', () => {
-    setTimeout(() => { document.getElementById('preloader').classList.add('hidden'); }, 1500);
-  });
-
-  // Navbar Scroll Effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
-  });
+  // Car Hero Slideshow Logic (1.5s interval)
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.car-slide');
+  if (slides.length > 0) {
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 1500); // 1.5 seconds per slide
+  }
 
   // Mobile Menu Toggle
-  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-  const navMenu = document.getElementById('navMenu');
-  mobileMenuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-  });
-  document.querySelectorAll('.nav-menu a').forEach(link => {
+  const mobileMenuToggle = document.querySelector('.nav-toggle');
+  if(mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+      document.getElementById('mm').classList.toggle('open');
+    });
+  }
+
+  // Close mobile menu when clicking a link
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      mobileMenuToggle.textContent = '☰';
+      document.getElementById('mm').classList.remove('open');
     });
   });
-
-  // Quick Car Form Submission
-  document.getElementById('quickCarForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const inputs = this.querySelectorAll('input, select');
-    const location = inputs[0].value;
-    const pickup = inputs[1].value;
-    const dropoff = inputs[2].value;
-    const vehicle = inputs[3].value;
-
-    const message = `*Quick Car Hire Inquiry*%0A%0A` +
-      `*Pick-up:* ${location}%0A` +
-      `*Dates:* ${pickup} to ${dropoff}%0A` +
-      `*Vehicle:* ${vehicle}`;
-    window.open(`https://wa.me/256757212707?text=${message}`, '_blank');
-  });
-
-  // FAQ Accordion
-  document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-      const faqItem = question.parentElement;
-      const isActive = faqItem.classList.contains('active');
-      document.querySelectorAll('.faq-item').forEach(item => { item.classList.remove('active'); });
-      if (!isActive) { faqItem.classList.add('active'); }
-    });
-  });
-
-  // Scroll to Top Button
-  const scrollTop = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) { scrollTop.classList.add('visible'); } else { scrollTop.classList.remove('visible'); }
-  });
-  scrollTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-
-  // Fade In Animation on Scroll
-  const fadeElements = document.querySelectorAll('.fade-in');
-  const fadeInObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
-  }, { threshold: 0.1 });
-  fadeElements.forEach(element => { fadeInObserver.observe(element); });
 
   // Smooth Scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1075,15 +1072,87 @@
         const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          navMenu.classList.remove('active');
-          mobileMenuToggle.textContent = '☰';
         }
       }
     });
   });
 
+  // Fade In Animation on Scroll
+  const fadeElements = document.querySelectorAll('.fade-in');
+  const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeElements.forEach(element => {
+    fadeInObserver.observe(element);
+  });
+
   console.log('%c🦁 Best Safari Adventures East-Africa', 'color: #D4AF37; font-size: 24px; font-weight: bold;');
-  console.log('%cCar Hire Services Page Loaded', 'color: #98D8AA; font-size: 14px;');
 </script>
+
+<script>
+  /* =====================================================
+     PREMIUM SAFARI HAMBURGER MENU
+  ====================================================== */
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("safariMenuToggle");
+    const mobileMenu = document.getElementById("safariMobileMenu");
+    const menuOverlay = document.getElementById("safariMenuOverlay");
+    const menuClose = document.getElementById("safariMenuClose");
+    const menuLinks = document.querySelectorAll(".safari-menu-links a, .safari-menu-cta");
+
+    function openSafariMenu() {
+      mobileMenu.classList.add("active");
+      menuOverlay.classList.add("active");
+      menuToggle.classList.add("active");
+      menuToggle.setAttribute("aria-expanded", "true");
+      mobileMenu.setAttribute("aria-hidden", "false");
+      document.body.classList.add("safari-menu-open");
+    }
+
+    function closeSafariMenu() {
+      mobileMenu.classList.remove("active");
+      menuOverlay.classList.remove("active");
+      menuToggle.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      mobileMenu.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("safari-menu-open");
+    }
+
+    menuToggle.addEventListener("click", function () {
+      if (mobileMenu.classList.contains("active")) {
+        closeSafariMenu();
+      } else {
+        openSafariMenu();
+      }
+    });
+
+    menuClose.addEventListener("click", closeSafariMenu);
+    menuOverlay.addEventListener("click", closeSafariMenu);
+
+    menuLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeSafariMenu();
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+        closeSafariMenu();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 991) {
+        closeSafariMenu();
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

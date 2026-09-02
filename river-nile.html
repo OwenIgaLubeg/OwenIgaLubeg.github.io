@@ -1,10 +1,888 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>river nile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experience the mighty River Nile in Uganda. Discover white water rafting, sunset boat cruises, Nile wildlife like hippos and crocodiles, and the positive impact of tourism on local communities.">
+  <meta name="keywords" content="River Nile Uganda, Source of the Nile Jinja, Murchison Falls boat cruise, white water rafting Uganda, Nile wildlife safaris, Nile perch fishing, Uganda community tourism, Nile river safari packages">
+  <title>River Nile Safaris & Adventures | Best Safari Adventures East-Africa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link href="img/favicon.png" rel="icon" type="image/png">
+
+  <style>
+    /* ============ GOOGLE TRANSLATE & INSTALL APP WIDGET STYLES ============ */
+    .translate-widget {
+      position: fixed; top: 100px; right: 24px; z-index: 997;
+    }
+    .translate-btn {
+      display: flex; align-items: center; gap: 8px; background: var(--color-safari-dark);
+      color: var(--color-safari-gold); border: 1px solid rgba(212, 175, 55, 0.18);
+      padding: 10px 16px; border-radius: var(--radius-pill); cursor: pointer;
+      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      box-shadow: var(--shadow-md); transition: all 0.3s ease;
+    }
+    .translate-btn:hover { background: var(--color-safari-gold); color: var(--color-safari-dark); transform: translateY(-2px); }
+    .translate-btn .chevron { transition: transform 0.3s ease; }
+    .translate-widget.active .translate-btn .chevron { transform: rotate(180deg); }
+    .translate-dropdown {
+      position: absolute; top: calc(100% + 8px); right: 0; background: var(--color-safari-dark);
+      border: 1px solid rgba(212, 175, 55, 0.18); border-radius: var(--radius-md);
+      min-width: 220px; box-shadow: var(--shadow-lg); opacity: 0; visibility: hidden;
+      transform: translateY(-10px); transition: all 0.3s ease; overflow: hidden;
+    }
+    .translate-widget.active .translate-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+    .translate-option {
+      display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+      color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px;
+      transition: all 0.2s ease; border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .translate-option:last-child { border-bottom: none; }
+    .translate-option:hover { background: rgba(212, 175, 55, 0.15); color: var(--color-safari-gold-light); padding-left: 20px; }
+
+    .install-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; background: var(--color-safari-dark);
+      color: #fff; padding: 16px 24px; display: flex; justify-content: space-between;
+      align-items: center; box-shadow: 0 -4px 20px rgba(0,0,0,0.3); z-index: 9999;
+      transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .install-banner.visible { transform: translateY(0); }
+    .install-banner.hidden { display: none; }
+    .install-banner-content { display: flex; align-items: center; gap: 16px; flex: 1; }
+    .install-icon { font-size: 2rem; }
+    .install-text { display: flex; flex-direction: column; }
+    .install-text strong { font-size: 1rem; margin-bottom: 4px; color: var(--color-safari-gold-light); }
+    .install-text span { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    .install-actions { display: flex; gap: 12px; }
+    .install-btn {
+      background: var(--color-safari-gold); color: var(--color-safari-dark); border: none;
+      padding: 10px 20px; border-radius: var(--radius-pill); font-weight: 600;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .install-btn:hover { background: var(--color-safari-gold-light); transform: translateY(-2px); }
+    .dismiss-btn {
+      background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 20px; border-radius: var(--radius-pill); font-weight: 500; cursor: pointer; transition: all 0.3s ease;
+    }
+    .dismiss-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    :root {
+      --color-safari-dark: #0E1B16;
+      --color-safari-darker: #08110E;
+      --color-safari-gold: #D4AF37;
+      --color-safari-gold-light: #F1D27A;
+      --color-safari-orange: #C85A17;
+      --color-safari-mint: #98D8AA;
+      --color-safari-mint-dim: rgba(152, 216, 170, 0.12);
+      --color-parchment: #FAF9F6;
+      --color-white: #FFFFFF;
+      --color-river-blue: #2C5F6F;
+      --color-river-light: #4A9F8F;
+
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Cinzel', serif;
+
+      --container-max: 1280px;
+      --container-pad: 24px;
+      --radius-md: 8px;
+      --radius-pill: 999px;
+      --radius-sm: 4px;
+
+      --dur-fast: 0.2s;
+      --dur-base: 0.3s;
+      --dur-slow: 0.5s;
+      --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+      --shadow-md: 0 10px 30px -5px rgba(0,0,0,0.15), 0 8px 12px -6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 25px 50px -12px rgba(0,0,0,0.25), 0 15px 25px -10px rgba(0,0,0,0.15);
+      --shadow-warm: 0 15px 40px rgba(212, 175, 55, 0.2);
+
+      --border-on-dark: rgba(212, 175, 55, 0.18);
+      --border-hairline: rgba(0,0,0,0.08);
+      --fg-1: #1a1a1a;
+      --fg-2: #555555;
+      --fg-3: #888888;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--color-parchment); color: var(--fg-1); line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
+
+    .nav {
+      position: sticky; top: 0; z-index: 50; background: var(--color-safari-dark);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff;
+      border-bottom: 1px solid var(--border-on-dark); box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .nav-inner { display: flex; align-items: center; gap: 36px; height: 84px; }
+    .logo { display: inline-flex; align-items: center; gap: 14px; font-family: var(--font-display); font-weight: 600; font-size: 20px; color: #fff; text-decoration: none; letter-spacing: -0.005em; }
+    .logo img { height: 50px; width: auto; display: block; flex: none; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+    .logo-word { display: flex; flex-direction: column; line-height: 1; }
+    .logo-word .lw-1 { font-size: 20px; font-weight: 600; letter-spacing: 0.05em; color: var(--color-safari-gold-light); }
+    .logo-word .lw-2 { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.25em; color: var(--color-safari-gold); text-transform: uppercase; margin-top: 4px; }
+
+    .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; margin-left: auto; }
+    .nav-links a { position: relative; color: rgba(255,255,255,0.78); padding: 6px 0; transition: color var(--dur-fast) var(--ease-standard); }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: var(--color-safari-gold); transition: width var(--dur-base) var(--ease-standard); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-safari-gold-light); }
+
+    .nav-cta { margin-left: 24px; }
+    .nav-toggle { display: none; background: transparent; border: 0; color: #fff; padding: 8px; margin-left: auto; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-body); font-weight: 500; font-size: 14px; padding: 13px 24px; border-radius: var(--radius-pill); border: 0; line-height: 1; text-decoration: none; transition: all var(--dur-base) var(--ease-standard); }
+    .btn-primary { background: var(--color-safari-gold); color: var(--color-safari-dark); }
+    .btn-primary:hover { background: var(--color-safari-gold-light); color: var(--color-safari-dark); box-shadow: var(--shadow-warm); }
+    .btn-primary.on-dark { box-shadow: var(--shadow-warm); }
+    .btn-lg { padding: 16px 30px; font-size: 15px; }
+
+    .trust { background: var(--color-safari-darker); color: rgba(255,255,255,0.85); padding: 24px 0; border-top: 1px solid var(--border-on-dark); border-bottom: 1px solid var(--border-on-dark); }
+    .trust-inner { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; }
+    .trust-num { font-family: var(--font-mono); color: var(--color-safari-gold-light); font-weight: 600; font-size: 14px; }
+    .trust-sep { color: rgba(255,255,255,0.2); }
+
+    section { padding: clamp(72px, 10vw, 128px) 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 56px; flex-wrap: wrap; }
+    .section-head .left { max-width: 640px; }
+    .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-safari-orange); display: inline-block; margin-bottom: 18px; }
+    .eyebrow.on-dark { color: var(--color-safari-gold-light); }
+    h2.section-title { font-family: var(--font-display); font-size: clamp(34px, 4vw, 52px); line-height: 1.1; letter-spacing: -0.01em; font-weight: 600; margin: 0 0 16px; text-wrap: balance; }
+    .section-sub { font-size: 18px; color: var(--fg-2); line-height: 1.6; margin: 0; max-width: 580px; }
+    .on-dark .section-sub { color: rgba(255,255,255,0.72); }
+
+    /* NILE HERO SECTION */
+    .nile-hero {
+      position: relative; height: 85vh; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 0;
+      background: linear-gradient(135deg, var(--color-river-blue) 0%, var(--color-safari-dark) 100%);
+    }
+    .nile-slideshow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+    .nile-slide {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out;
+    }
+    .nile-slide.active { opacity: 1; }
+    .nile-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(14,27,22,0.85) 0%, rgba(44,95,111,0.6) 50%, rgba(14,27,22,0.85) 100%); z-index: 2;
+    }
+    .nile-hero-content { position: relative; z-index: 3; text-align: center; padding: 0 2rem; max-width: 900px; }
+    .nile-hero-content h1 {
+      font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5.5rem); color: var(--color-safari-gold-light);
+      margin-bottom: 1.5rem; text-shadow: 0 10px 40px rgba(0,0,0,0.6); line-height: 1.1;
+    }
+    .nile-hero-content p {
+      font-family: var(--font-display); font-size: clamp(1.1rem, 2vw, 1.4rem); color: rgba(255,255,255,0.95);
+      font-style: italic; line-height: 1.6; margin-bottom: 2.5rem;
+    }
+    .hero-nile-badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .nile-badge {
+      background: rgba(74, 159, 143, 0.2); backdrop-filter: blur(10px);
+      padding: 12px 24px; border-radius: var(--radius-pill); color: var(--color-safari-gold-light);
+      font-family: var(--font-mono); font-size: 0.9rem; font-weight: 600; border: 1px solid rgba(74, 159, 143, 0.4);
+    }
+
+    /* NILE SPOTLIGHT */
+    .nile-spotlight { background: linear-gradient(180deg, var(--color-parchment) 0%, var(--color-safari-mint-dim) 100%); }
+    .spotlight-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+    .spotlight-image {
+      border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 30px 60px rgba(44, 95, 111, 0.3);
+      aspect-ratio: 4/3; position: relative;
+    }
+    .spotlight-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-standard); }
+    .spotlight-image:hover img { transform: scale(1.03); }
+    .spotlight-content h2 { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-river-blue); margin-bottom: 1.5rem; line-height: 1.2; }
+    .spotlight-content p { font-family: var(--font-display); font-size: 1.15rem; color: var(--fg-2); margin-bottom: 1.5rem; line-height: 1.8; font-style: italic; }
+
+    /* WILDLIFE GRID */
+    .wildlife-section { background: var(--color-safari-dark); color: #fff; }
+    .wildlife-section .section-title { color: var(--color-safari-gold-light); }
+    .wildlife-section .section-sub { color: rgba(255,255,255,0.75); }
+    .wildlife-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .wildlife-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md); overflow: hidden; transition: all var(--dur-slow) var(--ease-standard);
+    }
+    .wildlife-card:hover { background: rgba(255,255,255,0.08); border-color: var(--color-safari-gold); transform: translateY(-8px); }
+    .wildlife-card-img { height: 200px; overflow: hidden; }
+    .wildlife-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-standard); }
+    .wildlife-card:hover .wildlife-card-img img { transform: scale(1.1); }
+    .wildlife-card-content { padding: 24px; }
+    .wildlife-card-content h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--color-safari-gold-light); margin-bottom: 12px; }
+    .wildlife-card-content p { font-family: var(--font-display); font-size: 0.95rem; color: rgba(255,255,255,0.8); line-height: 1.6; font-style: italic; }
+
+    /* ACTIVITIES GRID */
+    .activities-section { background: linear-gradient(180deg, var(--color-safari-mint-dim) 0%, var(--color-parchment) 100%); }
+    .activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .activity-card {
+      background: #fff; border-radius: var(--radius-md); overflow: hidden;
+      box-shadow: var(--shadow-md); transition: all var(--dur-slow) var(--ease-standard);
+    }
+    .activity-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .activity-card-img { height: 220px; overflow: hidden; }
+    .activity-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-standard); }
+    .activity-card:hover .activity-card-img img { transform: scale(1.1); }
+    .activity-card-content { padding: 28px; }
+    .activity-card-content h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--color-river-blue); margin-bottom: 12px; }
+    .activity-card-content p { font-family: var(--font-display); font-size: 1rem; color: var(--fg-2); line-height: 1.7; font-style: italic; }
+
+    /* IMPACT SECTION */
+    .impact-section { background: var(--color-parchment); }
+    .impact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+    .impact-content h2 { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-river-blue); margin-bottom: 1.5rem; line-height: 1.2; }
+    .impact-content p { font-family: var(--font-display); font-size: 1.15rem; color: var(--fg-2); margin-bottom: 1.5rem; line-height: 1.8; font-style: italic; }
+    .impact-image {
+      border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 30px 60px rgba(44, 95, 111, 0.2);
+      aspect-ratio: 4/3; position: relative;
+    }
+    .impact-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-standard); }
+    .impact-image:hover img { transform: scale(1.03); }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, var(--color-river-blue) 0%, var(--color-safari-dark) 100%);
+      padding: 100px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ""; position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1516426122078-c63e13256f16?w=1920') center/cover no-repeat;
+      opacity: 0.15; mix-blend-mode: overlay;
+    }
+    .cta-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+    .cta-content h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); color: var(--color-safari-gold-light); margin-bottom: 1.5rem; }
+    .cta-content p { font-family: var(--font-display); font-size: 1.3rem; color: rgba(255,255,255,0.95); margin-bottom: 3rem; font-style: italic; line-height: 1.6; }
+
+    footer.site-footer { background: var(--color-safari-darker); color: rgba(255,255,255,0.7); padding: 80px 0 28px; border-top: 1px solid var(--border-on-dark); }
+    .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .foot-brand .logo { margin-bottom: 18px; color: #fff; }
+    .foot-tagline { font-family: var(--font-display); font-style: italic; font-size: 18px; color: rgba(255,255,255,0.85); line-height: 1.4; margin: 0 0 22px; max-width: 280px; }
+    .foot-addr { font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.55); font-style: normal; }
+    .foot-addr a { color: var(--color-safari-gold); }
+    .foot-col h4 { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-safari-gold); margin: 0 0 18px; }
+    .foot-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .foot-col a { color: rgba(255,255,255,0.7); font-size: 14px; transition: color var(--dur-fast); }
+    .foot-col a:hover { color: var(--color-safari-gold-light); }
+    .foot-social { display: flex; gap: 12px; margin-top: 24px; }
+    .foot-social a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); transition: all var(--dur-base); }
+    .foot-social a:hover { border-color: var(--color-safari-gold); color: var(--color-safari-gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+    .foot-bottom { padding-top: 24px; border-top: 1px solid var(--border-on-dark); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,0.4); font-family: var(--font-mono); letter-spacing: 0.02em; }
+
+    .floating-whatsapp { position: fixed; right: 32px; bottom: 32px; z-index: 999; }
+    .whatsapp-btn { width: 64px; height: 64px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 24px rgba(37,211,102,0.4); border: 3px solid #fff; }
+    .whatsapp-btn img { width: 36px; height: 36px; }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.6); }
+
+    .floating-social { position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 998; display: flex; flex-direction: column; gap: 8px; background: var(--color-safari-dark); padding: 12px 8px; border-radius: 0 8px 8px 0; border: 1px solid var(--border-on-dark); border-left: none; box-shadow: 4px 0 20px rgba(0,0,0,0.3); }
+    .social-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: var(--color-safari-gold); font-size: 1.1rem; text-decoration: none; transition: all 0.3s; border-radius: 50%; }
+    .social-icon svg { width: 20px; height: 20px; }
+    .social-icon:hover { background: var(--color-safari-gold); color: var(--color-safari-dark); transform: translateX(4px); }
+
+    .safari-menu-toggle {
+      position: fixed; top: 20px; right: 20px; width: 52px; height: 52px; border: none; border-radius: 50%;
+      background: #0b3d2e; display: none; align-items: center; justify-content: center; flex-direction: column;
+      gap: 5px; cursor: pointer; z-index: 100001; box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .safari-menu-toggle:hover { transform: scale(1.08); background: #145c43; }
+    .safari-menu-toggle span { display: block; width: 23px; height: 2px; background: #ffffff; border-radius: 10px; transition: transform 0.35s ease, opacity 0.25s ease, width 0.35s ease; }
+    .safari-menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .safari-menu-toggle.active span:nth-child(2) { opacity: 0; width: 0; }
+    .safari-menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .safari-menu-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.60); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+      opacity: 0; visibility: hidden; z-index: 99998; transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .safari-menu-overlay.active { opacity: 1; visibility: visible; }
+
+    .safari-mobile-menu {
+      position: fixed; top: 0; right: 0; width: min(390px, 88%); height: 100vh; height: 100dvh;
+      background: linear-gradient(145deg, #073526, #0c4634 60%, #082c20); z-index: 100000;
+      transform: translateX(105%); transition: transform 0.45s cubic-bezier(.77,0,.18,1);
+      display: flex; flex-direction: column; overflow-y: auto; box-shadow: -15px 0 45px rgba(0,0,0,0.25);
+    }
+    .safari-mobile-menu.active { transform: translateX(0); }
+
+    .safari-menu-header { display: flex; align-items: center; justify-content: space-between; padding: 25px 25px 20px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .safari-menu-brand img { height: 45px; width: auto; }
+    .safari-menu-close {
+      width: 42px; height: 42px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
+      color: #ffffff; border-radius: 50%; font-size: 30px; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+    }
+    .safari-menu-close:hover { transform: rotate(90deg); background: #d4a853; color: #082c20; }
+
+    .safari-menu-links { display: flex; flex-direction: column; padding: 15px 25px; flex: 1; }
+    .safari-menu-links a {
+      position: relative; display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 5px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.10); transition: color 0.3s ease, padding-left 0.3s ease;
+    }
+    .safari-menu-links a:hover { color: #d4a853; padding-left: 12px; }
+    .safari-menu-links a small { color: rgba(255,255,255,0.35); font-size: 11px; letter-spacing: 1px; }
+    .safari-menu-links .safari-menu-contact { color: #d4a853; }
+
+    .safari-menu-footer { padding: 25px; border-top: 1px solid rgba(255,255,255,0.12); }
+    .safari-menu-footer p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.6; margin-bottom: 18px; }
+    .safari-menu-cta {
+      display: flex; align-items: center; justify-content: center; width: 100%; padding: 14px 20px;
+      background: #d4a853; color: #102e22; text-decoration: none; border-radius: 30px; font-weight: 700;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .safari-menu-cta:hover { transform: translateY(-2px); background: #e6bd6a; }
+
+    /* RESPONSIVE ADJUSTMENTS */
+    @media (max-width: 991px) {
+      .safari-menu-toggle { display: flex; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      .spotlight-grid, .impact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .wildlife-grid { grid-template-columns: 1fr 1fr; }
+      .activities-grid { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .floating-social { display: none; }
+      .translate-widget { top: 85px; left: 16px; right: auto; }
+      .translate-dropdown { left: 0; right: auto; min-width: 200px; }
+    }
+
+    @media (max-width: 768px) {
+      .foot-grid { grid-template-columns: 1fr; }
+      .foot-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .nile-hero { min-height: 300px; }
+      .spotlight-image, .impact-image { aspect-ratio: 16/9; }
+      .hero-nile-badges { gap: 12px; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-nile-badges { flex-direction: column; align-items: center; }
+      .wildlife-grid { grid-template-columns: 1fr; }
+      .nile-hero h1 { font-size: 2rem; }
+      .nile-hero p { font-size: 1rem; }
+      .translate-dropdown { left: -10px; min-width: 220px; }
+      .safari-menu-toggle { top: 14px; right: 14px; width: 48px; height: 48px; }
+      .safari-mobile-menu { width: 92%; }
+      .safari-menu-links a { font-size: 17px; padding: 16px 5px; }
+      .install-banner { flex-direction: column; gap: 16px; text-align: center; }
+      .install-banner-content { flex-direction: column; }
+      .install-actions { width: 100%; justify-content: center; }
+    }
+  </style>
 </head>
 <body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Best Safari Adventures Home">
+      <img src="./img/company-logo.png" alt="Best Safari Adventures Logo" />
+      <span class="logo-word">
+        <span class="lw-1">BEST SAFARI</span>
+        <span class="lw-2">Adventures East-Africa</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="safari-packages.html">Safari Packages</a>
+      <a href="river-nile.html" class="active">River Nile</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="btn btn-primary nav-cta">Book Nile Safari</a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ GOOGLE TRANSLATE FLOATING WIDGET ============ -->
+<div class="translate-widget" id="translateWidget">
+  <button class="translate-btn" id="translateBtn" aria-label="Select Language">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+    <span>Translate</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+  <div class="translate-dropdown" id="translateDropdown">
+    <a href="#" class="translate-option" data-lang="en">🇬🇧 English</a>
+    <a href="#" class="translate-option" data-lang="nl">🇳🇱 Dutch</a>
+    <a href="#" class="translate-option" data-lang="de">🇩🇪 German</a>
+    <a href="#" class="translate-option" data-lang="fr">🇫🇷 French</a>
+    <a href="#" class="translate-option" data-lang="es">🇪🇸 Spanish</a>
+    <a href="#" class="translate-option" data-lang="pt">🇵🇹 Portuguese</a>
+    <a href="#" class="translate-option" data-lang="ru">🇷🇺 Russian</a>
+    <a href="#" class="translate-option" data-lang="ar">🇸🇦 Arabic</a>
+  </div>
+</div>
+
+<!-- ============ INSTALL APP BANNER ============ -->
+<div id="install-banner" class="install-banner hidden">
+  <div class="install-banner-content">
+    <div class="install-icon">📱</div>
+    <div class="install-text">
+      <strong>Install Best Safari App</strong>
+      <span>Get quick access to your safari bookings right from your home screen.</span>
+    </div>
+  </div>
+  <div class="install-actions">
+    <button id="dismiss-install-btn" class="dismiss-btn">Not now</button>
+    <button id="install-btn" class="install-btn">Install App</button>
+  </div>
+</div>
+
+<button class="safari-menu-toggle" id="safariMenuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="safariMobileMenu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="safari-menu-overlay" id="safariMenuOverlay"></div>
+
+<nav class="safari-mobile-menu" id="safariMobileMenu" aria-hidden="true">
+  <div class="safari-menu-header">
+    <div class="safari-menu-brand">
+      <img src="./img/company-logo.png" alt="Best Safari Adventures Logo" />
+    </div>
+    <button class="safari-menu-close" id="safariMenuClose" aria-label="Close menu">×</button>
+  </div>
+  <div class="safari-menu-links">
+    <a href="index.html"><span>Home</span><small>01</small></a>
+    <a href="about.html"><span>About Us</span><small>02</small></a>
+    <a href="safari-packages.html"><span>Safari Packages</span><small>03</small></a>
+    <a href="river-nile.html" class="active"><span>River Nile</span><small>04</small></a>
+    <a href="contact.html" class="safari-menu-contact"><span>Contact Us</span><small>05</small></a>
+  </div>
+  <div class="safari-menu-footer">
+    <p>Adventure . Learn . Love . Nature<br>Experience Unforgettable East-Africa Safaris.</p>
+    <a href="contact.html" class="safari-menu-cta">Plan Your Safari</a>
+  </div>
+</nav>
+
+<div class="floating-social">
+  <a href="https://www.youtube.com/@bestsafariadventureseastafrica" target="_blank" class="social-icon" title="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9 L16 12 L10 15 Z" fill="currentColor" stroke="none"/></svg></a>
+  <a href="https://facebook.com/@bestsafariadventureseastafrica" target="_blank" class="social-icon" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22 V13 h3 l0.5 -4 H14 V7 c0-1.2.5-2 2-2 h2 V1.5 C17 1.2 15.7 1 14.5 1 c-3 0-5 1.8-5 5 v3 H6 v4 h3.5 V22"/></svg></a>
+  <a href="https://www.instagram.com/bestsafariadventureseastafrica/" target="_blank" class="social-icon" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+  <a href="https://x.com/bestsafariadventureseastafrica" target="_blank" class="social-icon" title="x"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H21l-7.4 8.45L22.5 21h-7.1l-5.55-7.05L3.5 21H.1l7.95-9.05L0 3h7.3l5 6.6L17.6 3zm-1.25 16h1.95L7.85 5H5.75l10.6 14z"/></svg></a>
+  <a href="https://linkedin.com/bestsafariadventureseastafrica" target="_blank" class="social-icon" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1"/><path d="M8 11V17"/><path d="M12 17V13.8C12 12.2 13 11 14.6 11C16.2 11 17 12.1 17 13.8V17"/><path d="M12 13V11"/></svg></a>
+  <a href="https://www.tiktok.com/@bestsafariadventureseast?lang=en" target="_blank" class="social-icon" title="Tiktok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4V14.5A3.5 3.5 0 1 1 10.5 11"/><path d="M14 4C15 6 16.8 7.4 19 7.5"/></svg></a>
+  <a href="https://snapchat.com/bestsafariadventureseastafrica" target="_blank" class="social-icon" title="Snapchat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 C10 3 8.5 4.6 8.5 6.8 V8.2 C8.5 9.5 7.7 10.6 6.6 11 C7.3 11.8 8.1 12.2 9 12.3 C9.2 14.5 10.4 16 12 16 C13.6 16 14.8 14.5 15 12.3 C15.9 12.2 16.7 11.8 17.4 11 C16.3 10.6 15.5 9.5 15.5 8.2 V6.8 C15.5 4.6 14 3 12 3Z"/><path d="M8.5 16.5C9.8 17.2 10.9 17.6 12 17.6C13.1 17.6 14.2 17.2 15.5 16.5"/></svg></a>
+  <a href="https://threads.com/bestsafariadventureseastafrica" target="_blank" class="social-icon" title="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4C8.5 4 6 6.3 6 10C6 13.7 8.5 16 12 16C15 16 17 14.5 17 12C17 9.8 15.2 8.5 12.8 8.5C10.9 8.5 9.5 9.6 9.5 11.2C9.5 12.8 10.8 14 12.8 14C15.5 14 18 12.5 18 9.2C18 5.8 15.5 4 12 4Z"/></svg></a>
+  <a href="https://telegram.com/bestsafariadventureseastafrica" target="_blank" class="social-icon" title="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 11L10 13L12 20L21 3Z"/><path d="M10 13L21 3"/></svg></a>
+</div>
+
+<section class="nile-hero">
+  <div class="nile-slideshow">
+    <div class="nile-slide active" style="background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa2b8a6?w=1920');"></div>
+    <div class="nile-slide" style="background-image: url('https://images.unsplash.com/photo-1516426122078-c63e13256f16?w=1920');"></div>
+    <div class="nile-slide" style="background-image: url('https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=1920');"></div>
+  </div>
+  <div class="nile-hero-overlay"></div>
+  <div class="nile-hero-content">
+    <div class="hero-nile-badges">
+      <span class="nile-badge">🌊 Source of the Nile</span>
+      <span class="nile-badge">🚣 White Water Rafting</span>
+      <span class="nile-badge">🦛 Nile Wildlife</span>
+    </div>
+    <h1>Discover the Mighty River Nile</h1>
+    <p>Experience the legendary river that shaped history. From thrilling white-water rafting in Jinja to serene sunset boat cruises at Murchison Falls, the Nile offers unforgettable adventures.</p>
+    <a href="contact.html" class="btn btn-primary btn-lg on-dark">Book Your Nile Adventure</a>
+  </div>
+</section>
+
+<section class="trust" style="padding:0;">
+  <div class="container trust-inner" style="padding-top:24px;padding-bottom:24px;">
+    <div class="trust-item"><span class="trust-num">Source</span><span>of the Nile</span></div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span class="trust-num">Grade 5</span><span>White Water Rafting</span></div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span class="trust-num">Eco</span><span>Community Impact</span></div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span>Expert</span><span>Local Guides</span></div>
+  </div>
+</section>
+
+<section class="nile-spotlight">
+  <div class="container">
+    <div class="spotlight-grid">
+      <div class="spotlight-image">
+        <img src="https://images.unsplash.com/photo-1516426122078-c63e13256f16?w=800" alt="Source of the Nile Jinja">
+      </div>
+      <div class="spotlight-content">
+        <span class="eyebrow">The Legendary River</span>
+        <h2>The Source of the Nile</h2>
+        <p>
+          The River Nile, the longest river in the world, begins its legendary 6,650 km journey to the Mediterranean Sea right here in Jinja, Uganda. Known as the "Source of the Nile," this historic town is where the Victoria Nile flows out of Lake Victoria.
+        </p>
+        <p>
+          Beyond its historical significance, the Nile is a hub for thrilling adventure tourism and serene wildlife viewing. Whether you are seeking the adrenaline rush of world-class white-water rafting or the tranquility of a sunset boat cruise past basking hippos and crocodiles, the River Nile delivers an unforgettable East African experience.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wildlife-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow on-dark">Nile Wildlife</span>
+        <h2 class="section-title">Wildlife of the Nile</h2>
+        <p class="section-sub">The River Nile ecosystem is teeming with diverse and fascinating wildlife, making every boat cruise and riverbank walk an adventure.</p>
+      </div>
+    </div>
+
+    <div class="wildlife-grid">
+      <div class="wildlife-card">
+        <div class="wildlife-card-img">
+          <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=600" alt="Nile Hippos">
+        </div>
+        <div class="wildlife-card-content">
+          <h3>Nile Hippos</h3>
+          <p>Witness massive pods of hippos lounging in the river and submerged in the cooling waters during the day.</p>
+        </div>
+      </div>
+
+      <div class="wildlife-card">
+        <div class="wildlife-card-img">
+          <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=600" alt="Nile Crocodiles">
+        </div>
+        <div class="wildlife-card-content">
+          <h3>Nile Crocodiles</h3>
+          <p>Spot the formidable Nile crocodile basking on the riverbanks, a true apex predator of the African waterways.</p>
+        </div>
+      </div>
+
+      <div class="wildlife-card">
+        <div class="wildlife-card-img">
+          <img src="https://images.unsplash.com/photo-1523805009345-71f309355f1b?w=600" alt="African Fish Eagle">
+        </div>
+        <div class="wildlife-card-content">
+          <h3>African Fish Eagle</h3>
+          <p>Listen for the iconic call of the African Fish Eagle as it swoops down to catch fish from the river's surface.</p>
+        </div>
+      </div>
+
+      <div class="wildlife-card">
+        <div class="wildlife-card-img">
+          <img src="https://images.unsplash.com/photo-1560272566-44c695395f64?w=600" alt="Shoebill Stork">
+        </div>
+        <div class="wildlife-card-content">
+          <h3>Shoebill Stork</h3>
+          <p>Keep an eye out for the prehistoric-looking Shoebill Stork hiding in the papyrus swamps along the riverbanks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="activities-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow">Nile Adventures</span>
+        <h2 class="section-title">Tourism Activities on the Nile</h2>
+        <p class="section-sub">From heart-pounding rapids to tranquil sunset cruises, the River Nile offers activities for every type of traveler.</p>
+      </div>
+    </div>
+
+    <div class="activities-grid">
+      <div class="activity-card">
+        <div class="activity-card-img">
+          <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=600" alt="White Water Rafting">
+        </div>
+        <div class="activity-card-content">
+          <h3>White Water Rafting</h3>
+          <p>Conquer the world-famous Grade 5 rapids of the Nile in Jinja. An adrenaline-pumping adventure for thrill-seekers.</p>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-img">
+          <img src="https://images.unsplash.com/photo-1516426122078-c63e13256f16?w=600" alt="Sunset Boat Cruise">
+        </div>
+        <div class="activity-card-content">
+          <h3>Sunset Boat Cruises</h3>
+          <p>Enjoy a serene sunset cruise at Murchison Falls, watching the sun dip below the horizon while hippos and crocodiles emerge.</p>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-img">
+          <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=600" alt="Nile Perch Fishing">
+        </div>
+        <div class="activity-card-content">
+          <h3>Sport Fishing</h3>
+          <p>Try your hand at catching the legendary Nile Perch, one of the largest freshwater fish in the world, with expert guides.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact-section">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-content">
+        <span class="eyebrow">Community & Conservation</span>
+        <h2>Positive Local Impact</h2>
+        <p>
+          Tourism along the River Nile is a powerful force for good. By choosing to explore the Nile with us, you directly support local communities living along the riverbanks.
+        </p>
+        <p>
+          A portion of your safari fee goes directly to community-led initiatives, including women's craft cooperatives, local school funding, and conservation projects that protect the Nile's delicate ecosystem. By engaging with local guides and staying in community-owned lodges, your journey creates sustainable livelihoods and ensures the preservation of this magnificent river for future generations.
+        </p>
+      </div>
+      <div class="impact-image">
+        <img src="https://images.unsplash.com/photo-1523805009345-71f309355f1b?w=800" alt="Community Impact along the Nile">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-content">
+    <h2>Experience the Mighty Nile</h2>
+    <p class="serif-text">Whether you seek adrenaline-pumping rapids or serene wildlife cruises, the River Nile awaits. Book your adventure today and create memories that will last a lifetime.</p>
+    <a href="contact.html" class="btn btn-primary btn-lg on-dark">Book Your Nile Safari Now</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo" aria-label="Best Safari Adventures Home">
+          <span class="logo-word">
+            <span class="lw-1">BEST SAFARI</span>
+            <span class="lw-2">Adventures East-Africa</span>
+          </span>
+        </a>
+        <p class="foot-tagline">Trusted Local Experts <em style="font-style:italic;color:rgba(255,255,255,0.6);">Experience the wild with us.</em></p>
+        <address class="foot-addr">
+          Makindye Boston, Kampala, Uganda<br>
+          (opposite Boston International school)<br>
+          <a href="tel:+256757212707">+256 757 212707</a><br>
+          <a href="mailto:bestsafariadventureseastafrica@gmail.com">bestsafariadventureseastafrica@gmail.com</a>
+        </address>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/bestsafariadventureseastafrica/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/@bestsafariadventureseastafrica" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9 L16 12 L10 15 Z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://facebook.com/@bestsafariadventureseastafrica" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22 V13 h3 l0.5 -4 H14 V7 c0-1.2.5-2 2-2 h2 V1.5 C17 1.2 15.7 1 14.5 1 c-3 0-5 1.8-5 5 v3 H6 v4 h3.5 V22"/></svg></a>
+          <a href="https://x.com/bestsafariadventureseastafrica" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 3H21l-7.4 8.45L22.5 21h-7.1l-5.55-7.05L3.5 21H.1l7.95-9.05L0 3h7.3l5 6.6L17.6 3zm-1.25 16h1.95L7.85 5H5.75l10.6 14z"/></svg></a>
+          <a href="https://www.tiktok.com/@bestsafariadventureseast?lang=en" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4V14.5A3.5 3.5 0 1 1 10.5 11"/><path d="M14 4C15 6 16.8 7.4 19 7.5"/></svg></a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="safari-packages.html">Safari Packages</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="shoebill.html">Shoebill Home Safari</a></li>
+          <li><a href="city-tours.html">Kampala City Tours</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="gorilla-trekking.html">Gorilla trekking</a></li>
+          <li><a href="bird-watching.html">Bird Watching</a></li>
+          <li><a href="accomodations.html">Accommodation</a></li>
+          <li><a href="car-hire-services.html">Car hire services</a></li>
+          <li><a href="community-engagements.html">Community Engagements</a></li>
+          <li><a href="bike-safaris.html">Bike Safaris</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="index.html">Uganda</a></li>
+          <li><a href="index.html">Kenya</a></li>
+          <li><a href="index.html">Tanzania</a></li>
+          <li><a href="index.html">Rwanda</a></li>
+          <li><a href="safari-packages.html">Multi-Country Tours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Best Safari Adventures East-Africa. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="floating-whatsapp">
+  <a href="https://wa.me/256757212707" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  </a>
+</div>
+
+<script>
+  // Nile Hero Slideshow Logic (3s interval)
+  let currentNileSlide = 0;
+  const nileSlides = document.querySelectorAll('.nile-slide');
+  if (nileSlides.length > 0) {
+    setInterval(() => {
+      nileSlides[currentNileSlide].classList.remove('active');
+      currentNileSlide = (currentNileSlide + 1) % nileSlides.length;
+      nileSlides[currentNileSlide].classList.add('active');
+    }, 3000);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("safariMenuToggle");
+    const mobileMenu = document.getElementById("safariMobileMenu");
+    const menuOverlay = document.getElementById("safariMenuOverlay");
+    const menuClose = document.getElementById("safariMenuClose");
+    const menuLinks = document.querySelectorAll(".safari-menu-links a, .safari-menu-cta");
+
+    function openSafariMenu() {
+      mobileMenu.classList.add("active");
+      menuOverlay.classList.add("active");
+      menuToggle.classList.add("active");
+      menuToggle.setAttribute("aria-expanded", "true");
+      mobileMenu.setAttribute("aria-hidden", "false");
+      document.body.classList.add("safari-menu-open");
+    }
+
+    function closeSafariMenu() {
+      mobileMenu.classList.remove("active");
+      menuOverlay.classList.remove("active");
+      menuToggle.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      mobileMenu.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("safari-menu-open");
+    }
+
+    menuToggle.addEventListener("click", function () {
+      if (mobileMenu.classList.contains("active")) {
+        closeSafariMenu();
+      } else {
+        openSafariMenu();
+      }
+    });
+
+    menuClose.addEventListener("click", closeSafariMenu);
+    menuOverlay.addEventListener("click", closeSafariMenu);
+
+    menuLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeSafariMenu();
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+        closeSafariMenu();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 991) {
+        closeSafariMenu();
+      }
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== '#') {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  // ==========================================
+  // GOOGLE TRANSLATE WIDGET LOGIC
+  // ==========================================
+  const translateWidget = document.getElementById('translateWidget');
+  const translateBtn = document.getElementById('translateBtn');
+  const translateOptions = document.querySelectorAll('.translate-option');
+
+  translateBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    translateWidget.classList.toggle('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!translateWidget.contains(e.target)) {
+      translateWidget.classList.remove('active');
+    }
+  });
+
+  translateOptions.forEach(option => {
+    option.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = option.getAttribute('data-lang');
+      const currentUrl = encodeURIComponent(window.location.href);
+      const translateUrl = `https://translate.google.com/translate?sl=auto&tl=${lang}&u=${currentUrl}`;
+      window.open(translateUrl, '_blank');
+      translateWidget.classList.remove('active');
+    });
+  });
+
+  // ==========================================
+  // INSTALL APP (PWA) PROMPT LOGIC
+  // ==========================================
+  let deferredPrompt;
+  const installBanner = document.getElementById('install-banner');
+  const installBtn = document.getElementById('install-btn');
+  const dismissBtn = document.getElementById('dismiss-install-btn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installBanner) {
+      installBanner.classList.remove('hidden');
+      setTimeout(() => { installBanner.classList.add('visible'); }, 100);
+    }
+  });
+
+  if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log('User install prompt outcome:', outcome);
+        deferredPrompt = null;
+        installBanner.classList.remove('visible');
+        setTimeout(() => { installBanner.classList.add('hidden'); }, 400);
+      }
+    });
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => {
+      installBanner.classList.remove('visible');
+      setTimeout(() => { installBanner.classList.add('hidden'); }, 400);
+    });
+  }
+
+  window.addEventListener('appinstalled', () => {
+    console.log('App was installed');
+    if (installBanner) {
+      installBanner.classList.remove('visible');
+      setTimeout(() => { installBanner.classList.add('hidden'); }, 400);
+    }
+    deferredPrompt = null;
+  });
+</script>
 
 </body>
 </html>
